@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">AppProjet</string>
+    <string name="logo_de_la_compagnie">Logo de la compagnie</string>
+    <string name="todo">TODO</string>
+    <string name="bienvenu_votre_espace_location">Bienvenu à votre espace location !</string>
+    <string name="name">Name</string>
+    <string name="formulaire_d_inscription">Formulaire d\'inscription</string>
+    <string name="pr_nom">Prénom</string>
+    <string name="num_ro_de_t_l_phone">Numéro de téléphone</string>
+    <string name="courriel_lectronique">Courriel électronique</string>
+    <string name="image_pour_courriel">Image pour courriel</string>
+    <string name="type_de_compte">Type de compte</string>
+    <string name="logo_page_inscription">logo page inscription</string>
+    <string name="soumettre">Soumettre</string>
+    <string name="annuler">Annuler</string>
+    <string name="boutton_pour_inscription">boutton pour inscription</string>
 </resources>

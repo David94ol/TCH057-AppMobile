@@ -37,4 +37,8 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
+    /*On ajoute la bibliothèque Jackson pour le traitement de documentation JSON*/
+    implementation("com.fasterxml.jackson.core:jackson-databind:2.16.1")
+    /*On ajoute la bibliothèque OkHttp pour la communication avec le serveur en Java*/
+    implementation("com.squareup.okhttp3:okhttp:4.12.0")
 }
