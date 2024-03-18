@@ -14,4 +14,6 @@
     <string name="soumettre">Soumettre</string>
     <string name="annuler">Annuler</string>
     <string name="boutton_pour_inscription">boutton pour inscription</string>
+    <string name="image_du_logo">image du logo</string>
+    <string name="button_pour_s_inscrire">Button pour s\'inscrire</string>
 </resources>

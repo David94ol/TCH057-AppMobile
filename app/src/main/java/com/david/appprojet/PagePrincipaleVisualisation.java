@@ -8,17 +8,14 @@
 
 package com.david.appprojet;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 public class PagePrincipaleVisualisation extends AppCompatActivity implements View.OnClickListener{
 
@@ -27,6 +24,7 @@ public class PagePrincipaleVisualisation extends AppCompatActivity implements Vi
     ImageButton btnInscription; //Bouton pour s'inscrire
     TextView txtResultat; //Texte pour afficher le nombre d'appartements trouvés dans la base de données
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,7 +32,7 @@ public class PagePrincipaleVisualisation extends AppCompatActivity implements Vi
 
         //On cherche les composants de la vue de PagePrincipaleVisualisation
         btnFiltre = findViewById(R.id.buttonFiltre);
-        btnInscription = findViewById(R.id.inscriptionButton);
+        btnInscription = findViewById(R.id.bttnInscription);
         txtResultat = findViewById(R.id.texteResultat);
 
         //Lorsqu'on click pour l'inscription
@@ -43,7 +41,7 @@ public class PagePrincipaleVisualisation extends AppCompatActivity implements Vi
 
     @Override
     public void onClick(View v) {
-        if (v.getId() == R.id.inscriptionButton) {
+        if (v.getId() == R.id.bttnInscription) {
             //On doit envoyer les informations de l'utilisateur à InscriptionActivity
             Intent inscriptionActivityIntent = new Intent(this, PageInscription.class);
             startActivity(inscriptionActivityIntent);
