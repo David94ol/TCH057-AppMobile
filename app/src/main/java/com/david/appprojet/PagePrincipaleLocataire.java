@@ -10,6 +10,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class PagePrincipaleLocataire extends AppCompatActivity {
 
+    //TEST TEST TEST
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
