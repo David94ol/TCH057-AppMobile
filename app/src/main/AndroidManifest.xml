@@ -13,6 +13,9 @@
         android:theme="@style/Theme.AppProjet"
         tools:targetApi="31">
         <activity
+            android:name=".PageLogIn"
+            android:exported="false" />
+        <activity
             android:name=".PageInscription"
             android:exported="false" />
         <activity
