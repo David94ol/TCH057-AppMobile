@@ -11,6 +11,9 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class PageLogIn extends AppCompatActivity implements View.OnClickListener{
 
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
