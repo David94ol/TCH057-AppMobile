@@ -49,7 +49,7 @@
                 android:layout_height="50dp"
                 android:layout_marginTop="40dp"
                 android:background="@drawable/custom_edittext"
-                android:drawableLeft="@drawable/baseline_person_24"
+                android:drawableLeft="@drawable/baseline_android_24"
                 android:drawablePadding="8dp"
                 android:hint="Username"
                 android:padding="8dp"
