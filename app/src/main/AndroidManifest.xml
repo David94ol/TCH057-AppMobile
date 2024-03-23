@@ -16,7 +16,7 @@
             android:name=".PageInscription"
             android:exported="false" />
         <activity
-            android:name=".PagePrincipaleVisualisation"
+            android:name=".PageLogIn"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

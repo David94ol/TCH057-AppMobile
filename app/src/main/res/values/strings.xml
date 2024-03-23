@@ -16,4 +16,14 @@
     <string name="boutton_pour_inscription">boutton pour inscription</string>
     <string name="image_du_logo">image du logo</string>
     <string name="button_pour_s_inscrire">Button pour s\'inscrire</string>
+    <string name="login">Login</string>
+    <string name="password">Password</string>
+    <string name="username">Username</string>
+    <string name="pas_de_compte_inscription_ici">Pas de compte ? Inscription ici !</string>
+    <string name="authentification">Authentification</string>
+    <string name="mot_de_passe">Mot de passe</string>
+    <string name="courriel">Courriel</string>
+    <string name="inscription">Inscription</string>
+    <string name="connexion">Connexion</string>
+    <string name="pas_de_compte_inscrivez_vous">Pas de compte? Inscrivez-vous</string>
 </resources>
