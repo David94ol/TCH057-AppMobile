@@ -26,4 +26,5 @@
     <string name="inscription">Inscription</string>
     <string name="connexion">Connexion</string>
     <string name="pas_de_compte_inscrivez_vous">Pas de compte? Inscrivez-vous</string>
+    <string name="nom">Nom</string>
 </resources>

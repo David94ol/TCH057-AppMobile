@@ -10,8 +10,8 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/titreFormulaire"
         android:layout_width="0dp"
-        android:layout_height="80dp"
-        android:background="#2A00BCD4"
+        android:layout_height="150dp"
+        android:background="@color/green2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -23,158 +23,151 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/formulaire_d_inscription"
+            android:textColor="@color/green"
             android:textSize="25sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.833"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="VisualLintOverlap" />
+            app:layout_constraintTop_toBottomOf="@+id/logoImage"
+            app:layout_constraintVertical_bias="1.0"
+            tools:ignore="VisualLintOverlap,TextContrastCheck" />
 
         <ImageView
             android:id="@+id/logoImage"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="204dp"
+            android:layout_width="184dp"
+            android:layout_height="117dp"
             android:contentDescription="@string/image_du_logo"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0"
             app:srcCompat="@drawable/logo"
             tools:ignore="VisualLintBounds" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <EditText
-        android:id="@+id/prenomFormulaire"
-        android:layout_width="335dp"
-        android:layout_height="49dp"
-        android:layout_marginTop="30dp"
-        android:autofillHints=""
-        android:ems="10"
-        android:inputType="text"
-        android:text="@string/pr_nom"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.64"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titreFormulaire"
-        tools:ignore="LabelFor" />
-
-    <EditText
-        android:id="@+id/nomFormulaire"
-        android:layout_width="336dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="30dp"
-        android:autofillHints=""
-        android:ems="10"
-        android:inputType="text"
-        android:text="@string/name"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.666"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/prenomFormulaire"
-        tools:ignore="LabelFor" />
-
-    <EditText
-        android:id="@+id/telephoneFormulaire"
-        android:layout_width="293dp"
-        android:layout_height="49dp"
-        android:layout_marginTop="30dp"
-        android:autofillHints=""
-        android:ems="10"
-        android:hint="@string/num_ro_de_t_l_phone"
-        android:inputType="phone"
-        android:textColorHint="#908E8E"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/formulaireLayout"
+        android:layout_width="361dp"
+        android:layout_height="0dp"
+        android:padding="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/telephoneImage"
-        app:layout_constraintTop_toBottomOf="@+id/nomFormulaire"
-        tools:ignore="LabelFor" />
-
-    <ImageView
-        android:id="@+id/telephoneImage"
-        android:layout_width="40dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="16dp"
-        android:contentDescription="Logo pour telephone"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.445"
-        app:srcCompat="@android:drawable/ic_menu_call"
-        tools:ignore="ContentDescription,HardcodedText" />
+        app:layout_constraintTop_toBottomOf="@+id/titreFormulaire"
+        app:layout_constraintVertical_bias="0.0">
 
-    <EditText
-        android:id="@+id/emailFormulaire"
-        android:layout_width="286dp"
-        android:layout_height="56dp"
-        android:layout_marginTop="30dp"
-        android:autofillHints=""
-        android:ems="10"
-        android:hint="@string/courriel_lectronique"
-        android:inputType="textEmailAddress"
-        android:textColorHint="#909090"
-        app:layout_constraintStart_toEndOf="@+id/imageView3"
-        app:layout_constraintTop_toBottomOf="@+id/telephoneFormulaire" />
+        <EditText
+            android:id="@+id/prenomFormulaire"
+            android:layout_width="260dp"
+            android:layout_height="50dp"
+            android:autofillHints=""
+            android:ems="10"
+            android:inputType="text"
+            android:text="@string/nom"
+            android:textColor="@color/grey"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.752"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/nomFormulaire"
+            tools:ignore="LabelFor" />
 
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="45dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="16dp"
-        android:contentDescription="@string/image_pour_courriel"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.584"
-        app:srcCompat="@android:drawable/sym_action_email"
-        tools:ignore="ImageContrastCheck" />
+        <EditText
+            android:id="@+id/nomFormulaire"
+            android:layout_width="260dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="28dp"
+            android:autofillHints=""
+            android:ems="10"
+            android:inputType="text"
+            android:text="@string/pr_nom"
+            android:textColor="@color/darkgray"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.752"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="LabelFor" />
 
-    <Spinner
-        android:id="@+id/selectionFormulaire"
-        android:layout_width="300dp"
-        android:layout_height="48dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/typeFormulaire"
-        app:layout_constraintVertical_bias="0.0" />
+        <EditText
+            android:id="@+id/telephoneFormulaire"
+            android:layout_width="260dp"
+            android:layout_height="50dp"
+            android:autofillHints=""
+            android:ems="10"
+            android:hint="@string/num_ro_de_t_l_phone"
+            android:inputType="phone"
+            android:textColorHint="@color/grey"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.752"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/prenomFormulaire"
+            tools:ignore="LabelFor" />
 
-    <TextView
-        android:id="@+id/typeFormulaire"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:text="@string/type_de_compte"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/emailFormulaire" />
+        <EditText
+            android:id="@+id/emailFormulaire"
+            android:layout_width="260dp"
+            android:layout_height="50dp"
+            android:autofillHints=""
+            android:ems="10"
+            android:hint="@string/courriel_lectronique"
+            android:inputType="textEmailAddress"
+            android:textColorHint="@color/grey"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.752"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/telephoneFormulaire" />
 
-    <Button
-        android:id="@+id/soumettreFormulaire"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        android:text="@string/soumettre"
-        android:textColorLink="#000000"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.228"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/selectionFormulaire" />
+        <Spinner
+            android:id="@+id/selectionFormulaire"
+            android:layout_width="300dp"
+            android:layout_height="48dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/typeFormulaire" />
 
-    <Button
-        android:id="@+id/annulerInscription"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        android:text="@string/annuler"
-        android:textColorLink="#03A9F4"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.288"
-        app:layout_constraintStart_toEndOf="@+id/soumettreFormulaire"
-        app:layout_constraintTop_toBottomOf="@+id/selectionFormulaire" />
+        <TextView
+            android:id="@+id/typeFormulaire"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="@string/type_de_compte"
+            android:textColor="@color/green"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/emailFormulaire" />
+
+        <Button
+            android:id="@+id/soumettreFormulaire"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="32dp"
+            android:backgroundTint="@color/green"
+            android:text="@string/soumettre"
+            android:textColorLink="#000000"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/annulerInscription" />
+
+        <Button
+            android:id="@+id/annulerInscription"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:layout_marginEnd="28dp"
+            android:layout_marginBottom="32dp"
+            android:backgroundTint="@color/green"
+            android:text="@string/annuler"
+            android:textColorLink="#03A9F4"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

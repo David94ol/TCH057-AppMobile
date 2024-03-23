@@ -16,7 +16,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class PageInscription extends AppCompatActivity implements View.OnClickListener{
+public class PageInscription extends AppCompatActivity{
 
     //Attributs de la page d'inscription
     TextView prenomUsager;
@@ -49,21 +49,7 @@ public class PageInscription extends AppCompatActivity implements View.OnClickLi
         adapteur.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         //On met l'adapteur dans le spinner
         typeCompte.setAdapter(adapteur);
-        //Pour revenir à la page principale de visualisation
-        annulerInscription.setOnClickListener(this);
-        //Pour envoyer les données de l'inscription à la base de données
-        soumettreInscription.setOnClickListener(this);
 
     }
 
-    //Lorsqu'on click
-    @Override
-    public void onClick(View v) {
-        if (v.getId() == R.id.annulerInscription) {
-            //On revient à la page principale de visualisation
-            Intent intent = new Intent(this, PagePrincipaleVisualisation.class);
-            startActivity(intent);
-            finish();
-        }
-    }
 }
