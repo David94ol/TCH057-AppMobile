@@ -13,6 +13,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -49,6 +50,40 @@ public class PageInscription extends AppCompatActivity{
         adapteur.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         //On met l'adapteur dans le spinner
         typeCompte.setAdapter(adapteur);
+
+        //Si on veut annuler l'inscription, on retourne a l'activité PageLogIn
+        annulerInscription.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(PageInscription.this, PageLogIn.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        //Si on veut soumettre l'inscription
+        soumettreInscription.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //On recupere les valeurs des champs
+                String prenom = prenomUsager.getText().toString();
+                String nom = nomUsager.getText().toString();
+                String telephone = telephoneUsager.getText().toString();
+                String courriel = courrielUsager.getText().toString();
+                String type = typeCompte.getSelectedItem().toString();
+
+                //On verifie que les champs ne sont pas vides
+                if(prenom.isEmpty() || nom.isEmpty() || telephone.isEmpty() || courriel.isEmpty() || type.equals("Veillez choisir le type de compte")){
+                    //Si un champ est vide, on affiche un message d'erreur
+                    Toast.makeText(getApplicationContext(), "Veuillez remplir tous les champs", Toast.LENGTH_SHORT).show();
+                }
+                //Si tout est bien rempli, on fai une requete a la base de données
+                else{
+                    //On crée un objet JSON pour envoyer les données
+
+                }
+            }
+        });
 
     }
 

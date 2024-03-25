@@ -58,6 +58,29 @@
         app:layout_constraintTop_toBottomOf="@+id/titreFormulaire"
         app:layout_constraintVertical_bias="0.0">
 
+        <ImageView
+            android:id="@+id/imageCourriel"
+            android:layout_width="30dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:contentDescription="@string/image_pour_courriel"
+            app:layout_constraintEnd_toStartOf="@+id/emailFormulaire"
+            app:layout_constraintTop_toBottomOf="@+id/telephoneUtilisateur"
+            app:srcCompat="@drawable/mail" />
+
+        <ImageView
+            android:id="@+id/telephoneUtilisateur"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="72dp"
+            android:contentDescription="@string/image_pour_telephone"
+            app:layout_constraintEnd_toStartOf="@+id/telephoneFormulaire"
+            app:layout_constraintHorizontal_bias="0.826"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageUtilisateur"
+            app:srcCompat="@drawable/telephone" />
+
         <EditText
             android:id="@+id/prenomFormulaire"
             android:layout_width="260dp"
@@ -66,7 +89,7 @@
             android:ems="10"
             android:inputType="text"
             android:text="@string/nom"
-            android:textColor="@color/grey"
+            android:textColor="@color/darkgray"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.752"
@@ -99,7 +122,7 @@
             android:ems="10"
             android:hint="@string/num_ro_de_t_l_phone"
             android:inputType="phone"
-            android:textColorHint="@color/grey"
+            android:textColorHint="@color/darkgray"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.752"
@@ -115,7 +138,7 @@
             android:ems="10"
             android:hint="@string/courriel_lectronique"
             android:inputType="textEmailAddress"
-            android:textColorHint="@color/grey"
+            android:textColorHint="@color/darkgray"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.752"
@@ -141,7 +164,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/emailFormulaire" />
+            app:layout_constraintTop_toBottomOf="@+id/emailFormulaire"
+            tools:ignore="TextContrastCheck" />
 
         <Button
             android:id="@+id/soumettreFormulaire"
@@ -154,7 +178,8 @@
             android:textColorLink="#000000"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/annulerInscription" />
+            app:layout_constraintEnd_toStartOf="@+id/annulerInscription"
+            tools:ignore="TextContrastCheck" />
 
         <Button
             android:id="@+id/annulerInscription"
@@ -167,7 +192,20 @@
             android:textColorLink="#03A9F4"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:ignore="TextContrastCheck" />
+
+        <ImageView
+            android:id="@+id/imageUtilisateur"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="8dp"
+            android:contentDescription="@string/image_utilisateur"
+            app:layout_constraintEnd_toStartOf="@+id/nomFormulaire"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/user_icon" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

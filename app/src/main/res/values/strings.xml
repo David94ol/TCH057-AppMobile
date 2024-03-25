@@ -27,4 +27,6 @@
     <string name="connexion">Connexion</string>
     <string name="pas_de_compte_inscrivez_vous">Pas de compte? Inscrivez-vous</string>
     <string name="nom">Nom</string>
+    <string name="image_utilisateur">image utilisateur</string>
+    <string name="image_pour_telephone">image pour telephone</string>
 </resources>
