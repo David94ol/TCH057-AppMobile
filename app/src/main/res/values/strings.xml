@@ -27,4 +27,5 @@
     <string name="nom">Nom</string>
     <string name="image_utilisateur">image utilisateur</string>
     <string name="image_pour_telephone">image pour telephone</string>
+    <string name="confirmation_mot_de_passe">Confirmation mot de passe</string>
 </resources>

@@ -17,7 +17,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class PageAfficheAppartment extends AppCompatActivity implements View.OnClickListener{
+public class PageAfficheAppartment extends AppCompatActivity{
 
     // Attributs et importantion de vues de la page principale visualisation
     ImageButton btnFiltre; //Bouton pour filtrer la recherche
@@ -30,21 +30,6 @@ public class PageAfficheAppartment extends AppCompatActivity implements View.OnC
         super.onCreate(savedInstanceState);
         setContentView(R.layout.pageafficheappartement);
 
-        //On cherche les composants de la vue de PagePrincipaleVisualisation
-        btnFiltre = findViewById(R.id.buttonFiltre);
-        btnInscription = findViewById(R.id.bttnInscription);
-        txtResultat = findViewById(R.id.texteResultat);
-
-        //Lorsqu'on click pour l'inscription
-        btnInscription.setOnClickListener(this);
     }
 
-    @Override
-    public void onClick(View v) {
-        if (v.getId() == R.id.bttnInscription) {
-            //On doit envoyer les informations de l'utilisateur à InscriptionActivity
-            Intent inscriptionActivityIntent = new Intent(this, PageInscription.class);
-            startActivity(inscriptionActivityIntent);
-        }
-    }
 }
