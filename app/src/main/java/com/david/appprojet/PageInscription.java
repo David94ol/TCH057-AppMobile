@@ -15,7 +15,6 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
-import com.fasterxml.jackson.databind.util.JSONPObject;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -105,53 +104,11 @@ public class PageInscription extends AppCompatActivity{
                     }
                     else
                     {
-                        //On lance une requête POST pour ajouter un nouvel utilisateur
-                        final String url = "http://127.0.0.1:3000";
-                        //On crée un OkHttpClient pour faire la requête
-                        OkHttpClient client = new OkHttpClient();
-                        //On crée un objet JSON pour envoyer les données
-                        MediaType JSON = MediaType.parse("application/json; charset=utf-8");
-                        utilisateurJSON = new JSONObject();
-                        //On crée un objet Utilisateur avec les données
-                        Utilisateur utilisateur = new Utilisateur(prenom, nom, telephone, courriel, type, motDePasse, confirmationMotDePasse);
-
-                        try {
-                            //On ajoute les données de l'utilisateur à l'objet JSON
-                            utilisateurJSON.put("adresse_courriel", utilisateur.getCourriel());
-                            utilisateurJSON.put("mot_de_passe", utilisateur.getMotDePasse());
-                            utilisateurJSON.put("nom", utilisateur.getNom());
-                            utilisateurJSON.put("prenom", utilisateur.getPrenom());
-                            utilisateurJSON.put("telephone", utilisateur.getTelephone());
-                            utilisateurJSON.put("typeCompte", utilisateur.getTypeCompte());
-                        }
-                        catch (JSONException e) {
-                            e.printStackTrace();
-                            Toast.makeText(getApplicationContext(), "Erreur lors de la création de l'objet JSON", Toast.LENGTH_SHORT).show();
-                        }
-
-                        //On crée une requête POST pour envoyer les données à la base de données
-                        RequestBody body = RequestBody.create(String.valueOf(utilisateurJSON), JSON);
-                        Request request = new Request.Builder()
-                                .url(url)
-                                .post(body)
-                                .build();
-                        Response reponse = null;
-                        try {
-                            reponse = client.newCall(request).execute();
-                        } catch (IOException e) {
-                            throw new RuntimeException(e);
-                        }
-                        if(reponse.code() == 201)
-                        {
-                            //Si la requête est un succès, on affiche un message de succès
-                            Toast.makeText(getApplicationContext(), "Inscription réussie", Toast.LENGTH_SHORT).show();
-                        }
-                        else
-                        {
-                            //Si la requête échoue, on affiche un message d'erreur
-                            Toast.makeText(getApplicationContext(), "Erreur lors de l'inscription", Toast.LENGTH_SHORT).show();
-                        }
-
+                        // TODO: essayer de faire une requête POST à l'API pour créer un utilisateur
+                        DatabaseUtil.executeQuery("INSERT INTO eq2utilisateur (adresse_courriel, mot_de_passe, nom, prenom, telephone, type_compte) " +
+                                        "VALUES (?, ?, ?, ?, ?, ?)", courriel, motDePasse, nom, prenom, telephone, type);
+                        //On affiche un message de succès
+                        Toast.makeText(getApplicationContext(), "Inscription réussie", Toast.LENGTH_SHORT).show();
                     }
                 }
             }

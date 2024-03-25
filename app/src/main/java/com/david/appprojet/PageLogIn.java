@@ -39,6 +39,15 @@ public class PageLogIn extends AppCompatActivity{
                 finish();
             }
         });
+        //Lorsqu'on click sur connexion
+        connexionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //On commence l'activité de connexion TODO : A MODIFIER SEULEMENT POUR TEST
+                Intent connexion = new Intent(PageLogIn.this, PageAfficheAppartment.class);
+                startActivity(connexion);
+            }
+        });
     }
 
 
