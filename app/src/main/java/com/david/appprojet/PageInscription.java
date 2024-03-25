@@ -39,7 +39,6 @@ public class PageInscription extends AppCompatActivity{
     private Spinner typeCompte;
     private Button soumettreInscription;
     private Button annulerInscription;
-    private JSONObject utilisateurJSON;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
