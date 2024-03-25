@@ -17,7 +17,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class PagePrincipaleVisualisation extends AppCompatActivity implements View.OnClickListener{
+public class PageAfficheAppartment extends AppCompatActivity implements View.OnClickListener{
 
     // Attributs et importantion de vues de la page principale visualisation
     ImageButton btnFiltre; //Bouton pour filtrer la recherche
@@ -28,7 +28,7 @@ public class PagePrincipaleVisualisation extends AppCompatActivity implements Vi
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.pageprincipalevisualisation);
+        setContentView(R.layout.pageafficheappartement);
 
         //On cherche les composants de la vue de PagePrincipaleVisualisation
         btnFiltre = findViewById(R.id.buttonFiltre);
