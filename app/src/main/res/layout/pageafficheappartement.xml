@@ -28,7 +28,32 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="1.0">
+
+        <Button
+            android:id="@+id/boutonAnnuler"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:backgroundTint="@color/green"
+            android:text="@string/annuler"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/buttonContacter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:backgroundTint="@color/green"
+            android:text="@string/contacter_propri_taire"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/introduction"
@@ -87,21 +112,150 @@
 
         <TextView
             android:id="@+id/titreAdresse"
-            android:layout_width="100dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Adresse:"
+            android:text="@string/adresse"
             android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/titrePrix" />
 
         <TextView
             android:id="@+id/titrePrix"
-            android:layout_width="100dp"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
-            android:text="Prix:"
+            android:text="@string/prix"
             android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/titreChambres"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:text="@string/nombre_de_chambres"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/titreArrondissement"
+            tools:ignore="TextSizeCheck" />
+
+        <TextView
+            android:id="@+id/titreArrondissement"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:text="@string/arrondisement"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/titreAdresse" />
+
+        <TextView
+            android:id="@+id/titreSuperficie"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:text="@string/superficie"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/titreChambres" />
+
+        <TextView
+            android:id="@+id/titreAnimaux"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:text="@string/animaux"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/titreSuperficie" />
+
+        <TextView
+            android:id="@+id/titreFumeur"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:text="@string/fumeur"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/titreAnimaux" />
+
+        <TextView
+            android:id="@+id/titreStationnement"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:text="@string/stationnement"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/titreFumeur" />
+
+        <TextView
+            android:id="@+id/prix"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            app:layout_constraintStart_toEndOf="@+id/titrePrix"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/adresse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            app:layout_constraintStart_toEndOf="@+id/titreAdresse"
+            app:layout_constraintTop_toBottomOf="@+id/titrePrix" />
+
+        <TextView
+            android:id="@+id/description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/titreStationnement" />
+
+        <TextView
+            android:id="@+id/arrondisement"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            app:layout_constraintStart_toEndOf="@+id/titreArrondissement"
+            app:layout_constraintTop_toBottomOf="@+id/titreAdresse" />
+
+        <TextView
+            android:id="@+id/nombreChambres"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:textSize="20sp"
+            app:layout_constraintStart_toEndOf="@+id/titreChambres"
+            app:layout_constraintTop_toBottomOf="@+id/titreArrondissement" />
+
+        <TextView
+            android:id="@+id/superficie"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            app:layout_constraintStart_toEndOf="@+id/titreSuperficie"
+            app:layout_constraintTop_toBottomOf="@+id/titreChambres" />
+
+        <TextView
+            android:id="@+id/animaux"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            app:layout_constraintStart_toEndOf="@+id/titreAnimaux"
+            app:layout_constraintTop_toBottomOf="@+id/titreSuperficie" />
+
+        <TextView
+            android:id="@+id/fumeur"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            app:layout_constraintStart_toEndOf="@+id/titreFumeur"
+            app:layout_constraintTop_toBottomOf="@+id/titreAnimaux" />
+
+        <TextView
+            android:id="@+id/stationnement"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            app:layout_constraintStart_toEndOf="@+id/titreStationnement"
+            app:layout_constraintTop_toBottomOf="@+id/titreFumeur" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -28,4 +28,13 @@
     <string name="image_utilisateur">image utilisateur</string>
     <string name="image_pour_telephone">image pour telephone</string>
     <string name="confirmation_mot_de_passe">Confirmation mot de passe</string>
+    <string name="animaux">Animaux:</string>
+    <string name="adresse">Adresse:</string>
+    <string name="arrondisement">Arrondisement:</string>
+    <string name="nombre_de_chambres">Nombre de chambres:</string>
+    <string name="superficie">Superficie:</string>
+    <string name="stationnement">Stationnement</string>
+    <string name="fumeur">Fumeur:</string>
+    <string name="prix">Prix:</string>
+    <string name="contacter_propri_taire">Contacter propriétaire</string>
 </resources>
