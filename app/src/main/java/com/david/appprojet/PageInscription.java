@@ -65,6 +65,21 @@ public class PageInscription extends AppCompatActivity{
         //On met l'adapteur dans le spinner
         typeCompte.setAdapter(adapteur);
 
+        //Si on click sur prenom ou nom, on efface le texte
+        prenomUsager.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                prenomUsager.setText("");
+                nomUsager.setText("");
+            }
+        });
+        nomUsager.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                nomUsager.setText("");
+            }
+        });
+
         //Si on veut annuler l'inscription, on retourne a l'activité PageLogIn
         annulerInscription.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -103,7 +118,7 @@ public class PageInscription extends AppCompatActivity{
                     }
                     else
                     {
-                        // TODO: essayer de faire une requête POST à l'API pour créer un utilisateur
+                        //On envoie la requete pour ajouter un utilisateur
                         DatabaseUtil.executeQuery("INSERT INTO eq2utilisateur (adresse_courriel, mot_de_passe, nom, prenom, telephone, type_compte) " +
                                         "VALUES (?, ?, ?, ?, ?, ?)", courriel, motDePasse, nom, prenom, telephone, type);
                         //On affiche un message de succès

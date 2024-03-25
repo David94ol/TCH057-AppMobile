@@ -5,6 +5,7 @@ import android.widget.Toast;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class DatabaseUtil {
@@ -21,7 +22,9 @@ public class DatabaseUtil {
     private DatabaseUtil() {
     }
 
-    public static void executeQuery(String sql, Object... params){
+    public static ResultSet executeQuery(String sql, Object... params){
+        //Le resultSet permettra de stocker les résultats de la requête
+        ResultSet result = null;
         try {
             //On fait la connection à la base de données
             //Si elle existe pas ou si elle est fermée on la recrée
@@ -35,9 +38,10 @@ public class DatabaseUtil {
             for (int i = 0; i < params.length; i++) {
                 stmt.setObject(i + 1, params[i]);
             }
-            stmt.execute();
+            result = stmt.executeQuery();
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        return result;
     }
 }

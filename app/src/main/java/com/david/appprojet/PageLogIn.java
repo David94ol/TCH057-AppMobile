@@ -46,6 +46,7 @@ public class PageLogIn extends AppCompatActivity{
                 //On commence l'activité de connexion TODO : A MODIFIER SEULEMENT POUR TEST
                 Intent connexion = new Intent(PageLogIn.this, PageAfficheAppartment.class);
                 startActivity(connexion);
+                finish();
             }
         });
     }
