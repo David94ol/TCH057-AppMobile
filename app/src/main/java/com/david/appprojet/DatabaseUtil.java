@@ -24,7 +24,7 @@ public class DatabaseUtil {
     //Constructeur de la classe - elle ne doit pas être instanciée
     private DatabaseUtil() {
     }
-
+    //TODO À CHANGER
     public static ResultSet executeQuery(String sql, Object... params){
         //Le resultSet permettra de stocker les résultats de la requête
         ResultSet result = null;
