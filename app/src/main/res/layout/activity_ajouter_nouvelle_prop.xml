@@ -37,7 +37,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_begin="-163dp" />
+        app:layout_constraintGuide_begin="5dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline5"
@@ -59,14 +59,5 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_begin="365dp" />
-
-    <TextView
-        android:id="@+id/txtV_descriptionNouApp"
-        android:layout_width="176dp"
-        android:layout_height="18dp"
-        android:layout_marginTop="347dp"
-        android:text="Nombre de chambres ?"
-        app:layout_constraintStart_toStartOf="@+id/guideline4"
-        app:layout_constraintTop_toTopOf="@+id/titreFormulaire" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

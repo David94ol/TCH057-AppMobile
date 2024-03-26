@@ -1,6 +1,9 @@
+/* DatabaseUtil.java
+ * Cette classe permet la connection à la base de données et à envoyer des
+ * requêtes
+ * Auteur: David Osorio Laverde
+ * Date: 25 mars 2023*/
 package com.david.appprojet;
-
-import android.widget.Toast;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -35,13 +38,17 @@ public class DatabaseUtil {
             //On prepare la requete
             PreparedStatement stmt = conn.prepareStatement(sql);
 
+            //On ajoute les paramètres à la requête
             for (int i = 0; i < params.length; i++) {
                 stmt.setObject(i + 1, params[i]);
             }
+
+            //On execute la requête
             result = stmt.executeQuery();
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        //On retourne le résultat de la requête
         return result;
     }
 }

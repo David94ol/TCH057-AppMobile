@@ -49,8 +49,9 @@ public class PageAfficheAppartment extends AppCompatActivity{
         ResultSet result = null;
         try {
             //On va aller chercher les informations de l'appartement dans la base de données
-            result = DatabaseUtil.executeQuery("SELECT * FROM appartement WHERE id = ?", 1);
-            if(result != null && result.next()){
+            String requete = String.format("SELECT * FROM eq2propriete WHERE id = %s", 1);
+            result = DatabaseUtil.executeQuery(requete);
+            if(result != null){
                 prix.setText(result.getString("prix"));
                 adresse.setText(result.getString("adresse"));
                 arrondisement.setText(result.getString("arrondisement"));
@@ -76,7 +77,7 @@ public class PageAfficheAppartment extends AppCompatActivity{
         }
         //Pour le bouton annuler
         annuler.setOnClickListener(v -> {
-            //TODO: A CHANGER LA PAGE FAITE
+            //TODO: A FAIRE
             Intent intent = new Intent(PageAfficheAppartment.this, PageLogIn.class);
             startActivity(intent);
             finish();
