@@ -62,7 +62,7 @@
             android:id="@+id/imageCourriel"
             android:layout_width="30dp"
             android:layout_height="40dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:contentDescription="@string/image_pour_courriel"
             app:layout_constraintEnd_toStartOf="@+id/emailFormulaire"
@@ -73,10 +73,10 @@
             android:id="@+id/telephoneUtilisateur"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:layout_marginTop="72dp"
+            android:layout_marginTop="52dp"
             android:contentDescription="@string/image_pour_telephone"
             app:layout_constraintEnd_toStartOf="@+id/telephoneFormulaire"
-            app:layout_constraintHorizontal_bias="0.826"
+            app:layout_constraintHorizontal_bias="0.813"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageUtilisateur"
             app:srcCompat="@drawable/telephone" />
@@ -84,72 +84,75 @@
         <EditText
             android:id="@+id/prenomFormulaire"
             android:layout_width="260dp"
-            android:layout_height="50dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="4dp"
             android:autofillHints=""
             android:ems="10"
             android:inputType="text"
             android:text="@string/nom"
             android:textColor="@color/darkgray"
-            android:textSize="20sp"
+            android:textSize="15sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.752"
+            app:layout_constraintHorizontal_bias="0.722"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/nomFormulaire"
-            tools:ignore="LabelFor" />
+            tools:ignore="LabelFor,TouchTargetSizeCheck,TextContrastCheck" />
 
         <EditText
             android:id="@+id/nomFormulaire"
             android:layout_width="260dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="28dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="8dp"
             android:autofillHints=""
             android:ems="10"
             android:inputType="text"
             android:text="@string/pr_nom"
             android:textColor="@color/darkgray"
-            android:textSize="20sp"
+            android:textSize="15sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.752"
+            app:layout_constraintHorizontal_bias="0.722"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="LabelFor" />
+            tools:ignore="LabelFor,TouchTargetSizeCheck,TextContrastCheck" />
 
         <EditText
             android:id="@+id/telephoneFormulaire"
             android:layout_width="260dp"
-            android:layout_height="50dp"
+            android:layout_height="40dp"
             android:autofillHints=""
             android:ems="10"
             android:hint="@string/num_ro_de_t_l_phone"
             android:inputType="phone"
             android:textColorHint="@color/darkgray"
-            android:textSize="20sp"
+            android:textSize="15sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.752"
+            app:layout_constraintHorizontal_bias="0.722"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/prenomFormulaire"
-            tools:ignore="LabelFor" />
+            tools:ignore="LabelFor,TouchTargetSizeCheck,TextContrastCheck" />
 
         <EditText
             android:id="@+id/emailFormulaire"
             android:layout_width="260dp"
-            android:layout_height="50dp"
+            android:layout_height="40dp"
             android:autofillHints=""
             android:ems="10"
             android:hint="@string/courriel_lectronique"
             android:inputType="textEmailAddress"
             android:textColorHint="@color/darkgray"
-            android:textSize="20sp"
+            android:textSize="15sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.752"
+            app:layout_constraintHorizontal_bias="0.722"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/telephoneFormulaire" />
+            app:layout_constraintTop_toBottomOf="@+id/telephoneFormulaire"
+            tools:ignore="TouchTargetSizeCheck,TextContrastCheck" />
 
         <Spinner
             android:id="@+id/selectionFormulaire"
             android:layout_width="300dp"
             android:layout_height="48dp"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.491"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/typeFormulaire" />
 
@@ -157,14 +160,13 @@
             android:id="@+id/typeFormulaire"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="16dp"
             android:text="@string/type_de_compte"
             android:textColor="@color/green"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/emailFormulaire"
+            app:layout_constraintTop_toBottomOf="@+id/motDePasseConfirm"
             tools:ignore="TextContrastCheck" />
 
         <Button
@@ -199,12 +201,55 @@
             android:id="@+id/imageUtilisateur"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="16dp"
             android:layout_marginEnd="8dp"
             android:contentDescription="@string/image_utilisateur"
             app:layout_constraintEnd_toStartOf="@+id/nomFormulaire"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/user_icon" />
+
+        <EditText
+            android:id="@+id/motDePasse"
+            android:layout_width="260dp"
+            android:layout_height="40dp"
+            android:autofillHints=""
+            android:ems="10"
+            android:hint="@string/mot_de_passe"
+            android:inputType="textPassword"
+            android:textColorHint="@color/darkgray"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.722"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/emailFormulaire"
+            tools:ignore="DuplicateSpeakableTextCheck,TouchTargetSizeCheck,TextContrastCheck" />
+
+        <ImageView
+            android:id="@+id/logoMotdepasse"
+            android:layout_width="30dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="0sp"
+            android:layout_marginEnd="8dp"
+            android:contentDescription="@string/mot_de_passe"
+            app:layout_constraintEnd_toStartOf="@+id/motDePasse"
+            app:layout_constraintTop_toBottomOf="@+id/imageCourriel"
+            app:srcCompat="@drawable/baseline_lock_24" />
+
+        <EditText
+            android:id="@+id/motDePasseConfirm"
+            android:layout_width="260dp"
+            android:layout_height="40dp"
+            android:autofillHints=""
+            android:ems="10"
+            android:hint="@string/confirmation_mot_de_passe"
+            android:inputType="textPassword"
+            android:textColorHint="@color/darkgray"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.722"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/motDePasse"
+            tools:ignore="TouchTargetSizeCheck,TextContrastCheck" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

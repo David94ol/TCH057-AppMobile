@@ -41,4 +41,7 @@ dependencies {
     implementation("com.fasterxml.jackson.core:jackson-databind:2.16.1")
     /*On ajoute la bibliothèque OkHttp pour la communication avec le serveur en Java*/
     implementation("com.squareup.okhttp3:okhttp:4.12.0")
+    // https://mvnrepository.com/artifact/mysql/mysql-connector-java
+    implementation("mysql:mysql-connector-java:8.0.33")
+
 }

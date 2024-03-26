@@ -27,13 +27,4 @@
     <string name="nom">Nom</string>
     <string name="image_utilisateur">image utilisateur</string>
     <string name="image_pour_telephone">image pour telephone</string>
-    <string name="espace_proprietaire">Bienvenu à votre\nespace propriétaire !</string>
-    <string name="que_souhaitezVous_prop">Bonjour!\n Que souhaitez-vous faire aujourd'hui ?</string>
-    <string name="ajout_prp">Ajouter un nouveau appartement</string>
-    <string name="modif_prp">Modifier ou enlever appartement</string>
-    <string name="sortie_prp">Retorur à la page principale</string>
-    <string name="ajouter_apartement_haut">Ajout d\'un nouveau appartement </string>
-    <string name="veuillez_remplir">Veuillez remplir tous les champs suivants </string>
-    <string name="info_gene">Information générale de l\ 'appartement</string>
-
 </resources>
