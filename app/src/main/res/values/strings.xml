@@ -27,4 +27,5 @@
     <string name="nom">Nom</string>
     <string name="image_utilisateur">image utilisateur</string>
     <string name="image_pour_telephone">image pour telephone</string>
+    <string name="bonjour_que_souhaitez_vous_faire">Bonjour, que souhaitez-vous faire?</string>
 </resources>
