@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PageModificationProprietaire">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/CL_HautPagemodifprop"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@color/green2"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="1dp">
+
+        <ImageView
+            android:id="@+id/logoImage"
+            android:layout_width="92dp"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/image_du_logo"
+            app:srcCompat="@drawable/logo2" />
+
+        <TextView
+            android:id="@+id/txtV_BienvenuModifProp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/espace_proprietaire"
+            android:textColor="@color/green"
+            android:textSize="23sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_editor_absoluteX="150dp" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/txtV_questionprop"
+        android:layout_width="match_parent"
+        android:layout_height="100sp"
+        android:layout_marginTop="28dp"
+        android:text="@string/que_souhaitezVous_prop"
+        android:textAlignment="center"
+        android:textColor="#070707"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/CL_HautPagemodifprop" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="83dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="33dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="125dp" />
+
+    <ImageView
+        android:id="@+id/imgV_sortieprp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="33dp"
+        android:layout_marginTop="132dp"
+        android:src="@drawable/log_in_icon"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imgv_modifprp" />
+
+    <ImageView
+        android:id="@+id/imgv_modifprp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="33dp"
+        android:layout_marginTop="136dp"
+        android:background="#F44336"
+        android:src="@drawable/add_icon"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/img_addprop" />
+
+    <ImageView
+        android:id="@+id/img_addprop"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="33dp"
+        android:layout_marginTop="64dp"
+        android:background="#F44336"
+        android:src="@drawable/plus_icon"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtV_questionprop" />
+
+    <TextView
+        android:id="@+id/txtV_AjoutProp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="64dp"
+        android:text="@string/ajout_prp"
+        android:textColor="#6C6B6B"
+        android:textSize="19sp"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toBottomOf="@+id/txtV_questionprop" />
+
+    <TextView
+        android:id="@+id/txtv_modifprop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="41dp"
+        android:layout_marginTop="136dp"
+        android:text="@string/modif_prp"
+        android:textColor="#6C6B6B"
+        android:textSize="19sp"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toTopOf="@+id/txtV_AjoutProp" />
+
+    <TextView
+        android:id="@+id/txtV_retoutprp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="41dp"
+        android:layout_marginTop="133dp"
+        android:text="@string/sortie_prp"
+        android:textColor="#6C6B6B"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toTopOf="@+id/txtv_modifprop" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

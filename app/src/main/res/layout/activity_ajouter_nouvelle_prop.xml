@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AjouterNouvelleProp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/titreFormulaire"
+        android:layout_width="409dp"
+        android:layout_height="200dp"
+        android:background="@color/green2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <TextView
+            android:id="@+id/titreTexte"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/ajouter_apartement_haut"
+            android:textColor="@color/green"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/logoImage"
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="VisualLintOverlap,TextContrastCheck" />
+
+        <ImageView
+            android:id="@+id/logoImage"
+            android:layout_width="184dp"
+            android:layout_height="117dp"
+            android:contentDescription="@string/image_du_logo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/logo"
+            tools:ignore="VisualLintBounds" />
+
+        <TextView
+            android:id="@+id/txtV_veuillezREmplir"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:text="@string/veuillez_remplir"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/titreTexte" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/txtV_codePostal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="213dp"
+        android:layout_marginEnd="160dp"
+        android:text="Adresse"
+        app:layout_constraintEnd_toEndOf="@+id/edtxt_codePostalNouveApp"
+        app:layout_constraintHorizontal_bias="0.085"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/titreFormulaire" />
+
+    <TextView
+        android:id="@+id/txtV_codePostal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="241dp"
+        android:text="Ville"
+        app:layout_constraintEnd_toStartOf="@+id/spn_arrondissementNouvelProp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/titreFormulaire" />
+
+    <TextView
+        android:id="@+id/txtV_codePostal"
+        android:layout_width="83dp"
+        android:layout_height="22dp"
+        android:layout_marginTop="269dp"
+        android:layout_marginEnd="5dp"
+        android:text="Code Postal"
+        app:layout_constraintEnd_toStartOf="@+id/edtxt_codePostalNouveApp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/titreFormulaire" />
+
+    <EditText
+        android:id="@+id/edtxt_codePostalNouveApp"
+        android:layout_width="100dp"
+        android:layout_height="28dp"
+        android:layout_marginTop="212dp"
+        android:layout_marginEnd="12dp"
+        android:ems="10"
+        android:inputType="text"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/titreFormulaire" />
+
+    <EditText
+        android:id="@+id/edtxt_codePostalNouveApp"
+        android:layout_width="99dp"
+        android:layout_height="24dp"
+        android:layout_marginTop="240dp"
+        android:ems="10"
+        android:inputType="text"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.872"
+        app:layout_constraintStart_toStartOf="@+id/txtV_arrond"
+        app:layout_constraintTop_toTopOf="@+id/titreFormulaire" />
+
+    <EditText
+        android:id="@+id/edtxt_codePostalNouveApp"
+        android:layout_width="160dp"
+        android:layout_height="28dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="212dp"
+        android:ems="10"
+        android:inputType="text"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/titreFormulaire" />
+
+    <EditText
+        android:id="@+id/edtxt_codePostalNouveApp"
+        android:layout_width="160dp"
+        android:layout_height="28dp"
+        android:layout_marginTop="268dp"
+        android:ems="10"
+        android:inputType="text"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.342"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/titreFormulaire" />
+
+    <TextView
+        android:id="@+id/txtV_arrond"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="128dp"
+        android:layout_marginTop="213dp"
+        android:text="Appartement"
+        app:layout_constraintStart_toStartOf="@+id/edtxt_codePostalNouveApp"
+        app:layout_constraintTop_toTopOf="@+id/titreFormulaire" />
+
+    <TextView
+        android:id="@+id/txtV_arrond"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="163dp"
+        android:layout_marginTop="240dp"
+        android:text="Arrondissement"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.016"
+        app:layout_constraintStart_toStartOf="@+id/spn_arrondissementNouvelProp"
+        app:layout_constraintTop_toTopOf="@+id/titreFormulaire" />
+
+    <Spinner
+        android:id="@+id/spn_arrondissementNouvelProp"
+        android:layout_width="160dp"
+        android:layout_height="18dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="241dp"
+        android:entries="@array/montreal_arrondissements"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/titreFormulaire" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="5dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="180dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="342dp" />
+
+    <EditText
+        android:id="@+id/edtxt_PrixnouvApp"
+        android:layout_width="160dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="348dp"
+        android:layout_marginEnd="68dp"
+        android:ems="10"
+        android:inputType="text"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline5"
+        app:layout_constraintTop_toTopOf="@+id/titreFormulaire" />
+
+    <EditText
+        android:id="@+id/edtxt_PrixnouvApp"
+        android:layout_width="160dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="372dp"
+        android:layout_marginEnd="70dp"
+        android:ems="10"
+        android:inputType="text"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/titreFormulaire" />
+
+    <EditText
+        android:id="@+id/edtxt_PrixnouvApp"
+        android:layout_width="160dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="420dp"
+        android:layout_marginEnd="70dp"
+        android:ems="10"
+        android:hint="m2"
+        android:inputType="text"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/titreFormulaire" />
+
+    <EditText
+        android:id="@+id/edtxt_PrixnouvApp"
+        android:layout_width="160dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="446dp"
+        android:layout_marginEnd="70dp"
+        android:ems="10"
+        android:hint="$"
+        android:inputType="text"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/titreFormulaire" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="365dp" />
+
+    <TextView
+        android:id="@+id/txtV_descriptionNouApp"
+        android:layout_width="176dp"
+        android:layout_height="18dp"
+        android:layout_marginTop="347dp"
+        android:text="Nombre de chambres ?"
+        app:layout_constraintStart_toStartOf="@+id/guideline4"
+        app:layout_constraintTop_toTopOf="@+id/titreFormulaire" />
+
+    <TextView
+        android:id="@+id/txtV_descriptionNouApp"
+        android:layout_width="176dp"
+        android:layout_height="15dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="373dp"
+        android:text="Nombre de stationnement ?"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/titreFormulaire" />
+
+    <TextView
+        android:id="@+id/txtV_descriptionNouApp"
+        android:layout_width="176dp"
+        android:layout_height="15dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="400dp"
+        android:text="Permission d'annimaux ?"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/titreFormulaire" />
+
+    <TextView
+        android:id="@+id/txtV_descriptionNouApp"
+        android:layout_width="176dp"
+        android:layout_height="15dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="420dp"
+        android:text="Superficie ?"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/titreFormulaire" />
+
+    <TextView
+        android:id="@+id/txtV_descriptionNouApp"
+        android:layout_width="176dp"
+        android:layout_height="15dp"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="444dp"
+        android:text="Prix ?"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/titreFormulaire" />
+
+    <TextView
+        android:id="@+id/txtV_descriptionNouApp"
+        android:layout_width="176dp"
+        android:layout_height="15dp"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="472dp"
+        android:text="Permis de fumer ?"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/titreFormulaire" />
+
+    <TextView
+        android:id="@+id/txtV_descriptionNouApp"
+        android:layout_width="176dp"
+        android:layout_height="15dp"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="512dp"
+        android:text="Permis de fumer ?"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/titreFormulaire" />
+
+    <Spinner
+        android:id="@+id/spn_PermisFumerNouvApp"
+        android:layout_width="160dp"
+        android:layout_height="19dp"
+        android:layout_marginTop="400dp"
+        android:entries="@array/oui_non_options"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.014"
+        app:layout_constraintStart_toStartOf="@+id/guideline5"
+        app:layout_constraintTop_toTopOf="@+id/titreFormulaire" />
+
+    <Spinner
+        android:id="@+id/spn_PermisFumerNouvApp"
+        android:layout_width="160dp"
+        android:layout_height="19dp"
+        android:layout_marginTop="472dp"
+        android:entries="@array/oui_non_options"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.014"
+        app:layout_constraintStart_toStartOf="@+id/guideline5"
+        app:layout_constraintTop_toTopOf="@+id/titreFormulaire" />
+
+    <EditText
+        android:id="@+id/edtxt_description"
+        android:layout_width="159dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="500dp"
+        android:layout_marginEnd="70dp"
+        android:ems="10"
+        android:gravity="start|top"
+        android:inputType="textMultiLine"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline5"
+        app:layout_constraintTop_toTopOf="@+id/titreFormulaire" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
