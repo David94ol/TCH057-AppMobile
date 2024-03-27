@@ -5,62 +5,50 @@
  * Date: 25 mars 2023*/
 package com.david.appprojet;
 
-import android.util.Log;
-
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.*;
-import java.io.IOException;
-import java.util.concurrent.Callable;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
 public class DatabaseUtil {
+    private static final String DB_HOST = "equipe500.tch099.ovh";
+    private static final String DB_NAME = "equipe500";
+    private static final String DB_USER = "equipe500";
+    private static final String DB_PASSWORD = "+Sdum3RzzBJGQYvo";
 
-    private static final String URL = "https://pma.tch099.ovh/index.php";
-    private static final String BD = "equipe500";
-    private OkHttpClient client;
-    private ExecutorService executorService;
-
-    public DatabaseUtil() {
-        client = new OkHttpClient();
-        executorService = Executors.newSingleThreadExecutor();
+    //Méthode pour se connecter à la base de données
+    public static Connection getConnection() throws SQLException {
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            String url = "jdbc:mysql://" + DB_HOST + "/" + DB_NAME;
+            return DriverManager.getConnection(url, DB_USER, DB_PASSWORD);
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+            throw new SQLException("Database connection failed.");
+        }
     }
 
-    public Future<Boolean> publierInformation(String jsonData, String table) {
-        return executorService.submit(new Callable<Boolean>() {
-            @Override
-            public Boolean call() throws Exception {
-                try {
-                    // Construction de l'URL avec la base de données et la table spécifiées
-                    HttpUrl url = HttpUrl.parse(URL)
-                            .newBuilder()
-                            .addQueryParameter("route", "/sql")
-                            .addQueryParameter("pos", "0")
-                            .addQueryParameter("db", BD)
-                            .addQueryParameter("table", table)
-                            .build();
+    //Methode pour ajouter une information a la base de donnees
+    public static void ajoutUsager(String prenom, String nom, String telephone, String courriel, String typeCompte, String motDePasse) {
+        try {
+            Connection connection = getConnection();
+            String query = "INSERT INTO eq2utilisateur (adresse_courriel, mot_de_passe, nom,prenom, telephone, type_compte) VALUES (?, ?, ?, ?, ?, ?)";
+            PreparedStatement statement = connection.prepareStatement(query);
+            statement.setString(1, courriel);
+            statement.setString(2, motDePasse);
+            statement.setString(3, nom);
+            statement.setString(4, prenom);
+            statement.setString(5, telephone);
+            statement.setString(6, typeCompte);
 
-                    // Création de la requête POST avec les données JSON
-                    RequestBody body = RequestBody.create(jsonData, MediaType.parse("application/json"));
-                    Request request = new Request.Builder()
-                            .url(url)
-                            .post(body)
-                            .build();
+            statement.executeUpdate();
 
-                    // Envoi de la requête et gestion de la réponse
-                    Response response = client.newCall(request).execute();
-                    if (!response.isSuccessful()) {
-                        throw new IOException("Unexpected code " + response);
-                    } else {
-                        return true;
-                    }
-                } catch (Exception e) {
-                    Log.e("DatabaseUtil", "Error publishing information", e);
-                    return false;
-                }
-            }
-        });
+            // Fermez la connexion et le statement après utilisation
+            statement.close();
+            connection.close();
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

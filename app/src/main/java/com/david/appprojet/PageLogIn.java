@@ -12,6 +12,8 @@ import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.sql.SQLException;
+
 public class PageLogIn extends AppCompatActivity{
 
     //Composants de la page qui sont manipulés
@@ -43,10 +45,11 @@ public class PageLogIn extends AppCompatActivity{
         connexionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //On commence l'activité de connexion TODO : A MODIFIER SEULEMENT POUR TEST
-                Intent connexion = new Intent(PageLogIn.this, PageAfficheAppartment.class);
-                startActivity(connexion);
-                finish();
+                try {
+                    DatabaseUtil.getConnection();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
             }
         });
     }
