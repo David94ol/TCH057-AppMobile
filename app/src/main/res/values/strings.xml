@@ -41,4 +41,5 @@
     <string name="fumeur">Fumeur</string>
     <string name="nombre_de_chambres">Nombre de chambres</string>
     <string name="confirmation_mot_de_passe">confirmation mot de passe</string>
+    <string name="table_proprietes">eq2proprietes</string>
 </resources>
