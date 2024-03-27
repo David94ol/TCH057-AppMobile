@@ -5,30 +5,57 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
+    android:textAlignment="textStart"
     tools:context=".AjouterNouvelleProp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/titreFormulaire"
-        android:layout_width="409dp"
-        android:layout_height="200dp"
+        android:layout_width="match_parent"
+        android:layout_height="145dp"
         android:background="@color/green2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0">
 
         <ImageView
             android:id="@+id/logoImage"
-            android:layout_width="184dp"
-            android:layout_height="117dp"
+            android:layout_width="103dp"
+            android:layout_height="68dp"
+            android:layout_marginTop="8dp"
             android:contentDescription="@string/image_du_logo"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.501"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/logo"
             tools:ignore="VisualLintBounds" />
+
+        <TextView
+            android:id="@+id/txtV_ajoutNouvApp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="76dp"
+            android:text="@string/ajout_nouv_app"
+            android:textAlignment="center"
+            android:textColor="#0B0A0A"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txtV_remplirTouslesChamps"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="120dp"
+            android:text="@string/remplir_tout"
+            android:textAlignment="center"
+            android:textSize="10sp"
+            app:layout_constraintTop_toTopOf="@+id/logoImage"
+            tools:layout_editor_absoluteX="0dp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -42,7 +69,7 @@
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline5"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical"
         app:layout_constraintGuide_begin="180dp" />
 
@@ -59,5 +86,64 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_begin="365dp" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/txtInp_AdresseNouvApto"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="279dp"
+        android:layout_height="78dp"
+        android:layout_marginTop="15dp"
+        android:hint="@string/adresse"
+        app:boxStrokeColor="@color/green"
+        app:endIconMode="clear_text"
+        app:endIconTint="@color/green2"
+        app:helperText="Requis*"
+        app:helperTextTextColor="@color/red"
+        app:hintTextColor="@color/green"
+        app:layout_constraintStart_toStartOf="@+id/guideline4"
+        app:layout_constraintTop_toTopOf="@+id/txtV_infGene"
+        app:startIconDrawable="@drawable/add_adresse_icon"
+        tools:ignore="MissingConstraints">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/txtInp_AdresseNouvAptoText"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:textColor="#090909"
+            android:textColorLink="#4CAF50"
+            android:textSize="12sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/txtV_infGene"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="145dp"
+        android:text="@string/inf_gene"
+        android:textAlignment="textStart"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/titreFormulaire" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/txtInp_NumeroNouvApto"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="125dp"
+        android:layout_height="wrap_content"
+        tools:layout_editor_absoluteX="285dp"
+        tools:layout_editor_absoluteY="193dp"
+        android:hint="@">
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+
+        tools:layout_editor_absoluteX="296dp"
+        tools:layout_editor_absoluteY="161dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
