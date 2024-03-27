@@ -5,50 +5,62 @@
  * Date: 25 mars 2023*/
 package com.david.appprojet;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import android.util.Log;
+
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.*;
+import java.io.IOException;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 
 public class DatabaseUtil {
-    //Attributs de la base de données
-    private static Connection conn;
 
-    private static String username = "equipe500";
-    private static String password = "+Sdum3RzzBJGQYvo";
-    private static String host = "localhost";
-    private static int port = 3306;
-    private static String database = "equipe500";
+    private static final String URL = "https://pma.tch099.ovh/index.php";
+    private static final String BD = "equipe500";
+    private OkHttpClient client;
+    private ExecutorService executorService;
 
-    //Constructeur de la classe - elle ne doit pas être instanciée
-    private DatabaseUtil() {
+    public DatabaseUtil() {
+        client = new OkHttpClient();
+        executorService = Executors.newSingleThreadExecutor();
     }
-    //TODO À CHANGER
-    public static ResultSet executeQuery(String sql, Object... params){
-        //Le resultSet permettra de stocker les résultats de la requête
-        ResultSet result = null;
-        try {
-            //On fait la connection à la base de données
-            //Si elle existe pas ou si elle est fermée on la recrée
-            if (conn == null || conn.isClosed()) {
-                conn = DriverManager.getConnection("jdbc:mysql://" + host + ":" + port + "/" + database, username, password);
+
+    public Future<Boolean> publierInformation(String jsonData, String table) {
+        return executorService.submit(new Callable<Boolean>() {
+            @Override
+            public Boolean call() throws Exception {
+                try {
+                    // Construction de l'URL avec la base de données et la table spécifiées
+                    HttpUrl url = HttpUrl.parse(URL)
+                            .newBuilder()
+                            .addQueryParameter("route", "/sql")
+                            .addQueryParameter("pos", "0")
+                            .addQueryParameter("db", BD)
+                            .addQueryParameter("table", table)
+                            .build();
+
+                    // Création de la requête POST avec les données JSON
+                    RequestBody body = RequestBody.create(jsonData, MediaType.parse("application/json"));
+                    Request request = new Request.Builder()
+                            .url(url)
+                            .post(body)
+                            .build();
+
+                    // Envoi de la requête et gestion de la réponse
+                    Response response = client.newCall(request).execute();
+                    if (!response.isSuccessful()) {
+                        throw new IOException("Unexpected code " + response);
+                    } else {
+                        return true;
+                    }
+                } catch (Exception e) {
+                    Log.e("DatabaseUtil", "Error publishing information", e);
+                    return false;
+                }
             }
-
-            //On prepare la requete
-            PreparedStatement stmt = conn.prepareStatement(sql);
-
-            //On ajoute les paramètres à la requête
-            for (int i = 0; i < params.length; i++) {
-                stmt.setObject(i + 1, params[i]);
-            }
-
-            //On execute la requête
-            result = stmt.executeQuery();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        //On retourne le résultat de la requête
-        return result;
+        });
     }
 }
