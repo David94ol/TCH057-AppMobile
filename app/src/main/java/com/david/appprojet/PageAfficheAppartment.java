@@ -11,6 +11,7 @@ package com.david.appprojet;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -27,6 +28,10 @@ public class PageAfficheAppartment extends AppCompatActivity{
     Button annuler, contacter;
     TextView prix, adresse, arrondisement, chambres, superficie, animaux, fumeur, stationnement, description;
     String courrielProprietaire;
+
+    //j'ajoute ce bouton uniqument pour pouvoir acceder espace proprio
+    Button btn_spacePropio;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,6 +49,17 @@ public class PageAfficheAppartment extends AppCompatActivity{
         fumeur = findViewById(R.id.fumeur);
         stationnement = findViewById(R.id.stationnement);
         description = findViewById(R.id.description);
+
+        btn_spacePropio = findViewById(R.id.btn_sectionPropio); //toERASESOON*******************
+
+        btn_spacePropio.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intentionToErase = new Intent(v.getContext(), AjouterNouvelleProp.class);
+                startActivity(intentionToErase);
+            }
+        });
+        ////////////******************************************************************************
 
         //On doit aller chercher dans la base de données les informations de l'appartement
         DatabaseUtil httpclient = new DatabaseUtil();

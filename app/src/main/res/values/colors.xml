@@ -6,5 +6,7 @@
     <color name="grey">#D3D3D3</color>
     <color name="green">#93C572</color>
     <color name="green2">#ECFFDC</color>
+    <color name="greenFoncé">#FF2A702D</color>
     <color name="darkgray">#808080</color>
+    <color name="red">#FFFB0303</color>
 </resources>

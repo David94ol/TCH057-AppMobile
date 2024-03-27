@@ -41,5 +41,23 @@
     <string name="fumeur">Fumeur</string>
     <string name="nombre_de_chambres">Nombre de chambres</string>
     <string name="confirmation_mot_de_passe">confirmation mot de passe</string>
-    <string name="table_proprietes">eq2proprietes</string>
+    <string name="ajout_nouv_app">Ajout d\'une nouvelle appartement</string>
+    <string name="remplir_tout">Veuillez remplir tous les champs suivants</string>
+    <string name="inf_gene">Information génerale de l\'appartement</string>
+    <string name="adress">Adresse</string>
+    <string name="apto"># Apto </string>
+    <string name="codePostal">Code Postal</string>
+    <string name="nbChambres">Nombre de chambres ?</string>
+    <string name="nbStationnement">Nombre de stationnement ?</string>
+    <string name="permisAnimaux">Permission des animaux ?</string>
+    <string name="supf">Superficie</string>
+    <string name="prixNouvelleProp">Prix ($ CAD)</string>
+    <string name="fumeurNouvelleProp">Fumeur</string>
+    <string name="Description">Description</string>
+    <string name="infContact">Information de contact</string>
+
+
+
+
+
 </resources>
