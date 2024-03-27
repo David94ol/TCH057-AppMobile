@@ -19,7 +19,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.IOException;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 
@@ -111,32 +110,11 @@ public class PageInscription extends AppCompatActivity{
                     }
                     else
                     {
-                        //On envoie un objet JSON avec les informations de l'utilisateur
-                        JSONObject json = new JSONObject();
-                        try {
-                            json.put("prenom", prenom);
-                            json.put("nom", nom);
-                            json.put("telephone", telephone);
-                            json.put("courriel", courriel);
-                            json.put("type", type);
-                            json.put("motDePasse", motDePasse);
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                        //On envoie la requête à la base de données
-                        DatabaseUtil db = new DatabaseUtil();
-                        reponse = db.publierInformation(json.toString(), "eq2utilisateur");
-                        //On affiche un message de succès
-                        try {
-                            reponseRequete = reponse.get();
-                        } catch (ExecutionException e) {
-                            throw new RuntimeException(e);
-                        } catch (InterruptedException e) {
-                            throw new RuntimeException(e);
-                        }
-                        if (reponseRequete == true) {
-                            Toast.makeText(getApplicationContext(), "Inscription réussie", Toast.LENGTH_SHORT).show();
-                        }
+                        // Appel de la méthode pour insérer l'utilisateur dans la base de données
+                        //DatabaseUtil.ajoutUsager(courriel,motDePasse,nom,prenom,telephone,type);
+                        // Affichez un message de succès
+                        Toast.makeText(getApplicationContext(), "Inscription réussie !", Toast.LENGTH_SHORT).show();
+                        // Redirigez l'utilisateur vers une autre activité ou effectuez une autre action selon vos besoins
 
                     }
                 }

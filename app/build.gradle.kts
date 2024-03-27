@@ -39,9 +39,6 @@ dependencies {
     androidTestImplementation(libs.espresso.core)
     /*On ajoute la bibliothèque Jackson pour le traitement de documentation JSON*/
     implementation("com.fasterxml.jackson.core:jackson-databind:2.16.1")
-    /*On ajoute la bibliothèque OkHttp pour la communication avec le serveur en Java*/
+    /*On ajoute la bibliothèque pour etablir une connection avec la base de donnees*/
     implementation("com.squareup.okhttp3:okhttp:4.12.0")
-    // https://mvnrepository.com/artifact/mysql/mysql-connector-java
-    implementation("mysql:mysql-connector-java:8.0.33")
-
 }

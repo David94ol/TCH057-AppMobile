@@ -5,62 +5,50 @@
  * Date: 25 mars 2023*/
 package com.david.appprojet;
 
-import android.util.Log;
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
+import okhttp3.Call;
+import okhttp3.Callback;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
-import okhttp3.*;
-import java.io.IOException;
-import java.util.concurrent.Callable;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
+import okhttp3.Response;
+import okhttp3.ResponseBody;
 
 public class DatabaseUtil {
 
-    private static final String URL = "https://pma.tch099.ovh/index.php";
-    private static final String BD = "equipe500";
-    private OkHttpClient client;
-    private ExecutorService executorService;
+    private static final OkHttpClient client = new OkHttpClient();
 
-    public DatabaseUtil() {
-        client = new OkHttpClient();
-        executorService = Executors.newSingleThreadExecutor();
-    }
+    //Méthode pour se connecter à la base de données
+    public void getConnection() throws Exception{
 
-    public Future<Boolean> publierInformation(String jsonData, String table) {
-        return executorService.submit(new Callable<Boolean>() {
+        Request request = new Request.Builder()
+                .url("https://equipe500.tch099.ovh/projet2/api/getutilisateur")
+                .build();
+
+        client.newCall(request).enqueue(new Callback() {
             @Override
-            public Boolean call() throws Exception {
-                try {
-                    // Construction de l'URL avec la base de données et la table spécifiées
-                    HttpUrl url = HttpUrl.parse(URL)
-                            .newBuilder()
-                            .addQueryParameter("route", "/sql")
-                            .addQueryParameter("pos", "0")
-                            .addQueryParameter("db", BD)
-                            .addQueryParameter("table", table)
-                            .build();
+            public void onFailure(Call call, IOException e) {
+                e.printStackTrace();
+            }
 
-                    // Création de la requête POST avec les données JSON
-                    RequestBody body = RequestBody.create(jsonData, MediaType.parse("application/json"));
-                    Request request = new Request.Builder()
-                            .url(url)
-                            .post(body)
-                            .build();
-
-                    // Envoi de la requête et gestion de la réponse
-                    Response response = client.newCall(request).execute();
-                    if (!response.isSuccessful()) {
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                try (ResponseBody responseBody = response.body()) {
+                    if (!response.isSuccessful())
                         throw new IOException("Unexpected code " + response);
-                    } else {
-                        return true;
-                    }
-                } catch (Exception e) {
-                    Log.e("DatabaseUtil", "Error publishing information", e);
-                    return false;
+
+                    System.out.println(responseBody.string());
                 }
             }
         });
+
     }
 }
+
+
+
+
