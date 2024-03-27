@@ -111,11 +111,7 @@ public class PageInscription extends AppCompatActivity{
                     }
                     else
                     {
-                        // Appel de la méthode pour insérer l'utilisateur dans la base de données
-                        DatabaseUtil.ajoutUsager(courriel,motDePasse,nom,prenom,telephone,type);
-                        // Affichez un message de succès
-                        Toast.makeText(getApplicationContext(), "Inscription réussie !", Toast.LENGTH_SHORT).show();
-                        // Redirigez l'utilisateur vers une autre activité ou effectuez une autre action selon vos besoins
+
 
                     }
                 }

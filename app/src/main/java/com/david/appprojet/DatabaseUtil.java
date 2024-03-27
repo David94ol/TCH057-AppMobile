@@ -5,50 +5,36 @@
  * Date: 25 mars 2023*/
 package com.david.appprojet;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
+import java.io.IOException;
 public class DatabaseUtil {
-    private static final String DB_HOST = "equipe500.tch099.ovh";
-    private static final String DB_NAME = "equipe500";
-    private static final String DB_USER = "equipe500";
-    private static final String DB_PASSWORD = "+Sdum3RzzBJGQYvo";
+    private OkHttpClient client = new OkHttpClient();
+    private String url = "https://pma.tch099.ovh/index.php";
 
-    //Méthode pour se connecter à la base de données
-    public static Connection getConnection() throws SQLException {
-        try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            String url = "jdbc:mysql://" + DB_HOST + "/" + DB_NAME;
-            return DriverManager.getConnection(url, DB_USER, DB_PASSWORD);
-        } catch (ClassNotFoundException | SQLException e) {
-            e.printStackTrace();
-            throw new SQLException("Database connection failed.");
-        }
-    }
+    public void connecterBD(final ApiCallback callback) {
+        Request requete = new Request.Builder()
+                .url(url)
+                .build();
+        client.newCall(requete).enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                callback.onError(e.getMessage());
+            }
 
-    //Methode pour ajouter une information a la base de donnees
-    public static void ajoutUsager(String prenom, String nom, String telephone, String courriel, String typeCompte, String motDePasse) {
-        try {
-            Connection connection = getConnection();
-            String query = "INSERT INTO eq2utilisateur (adresse_courriel, mot_de_passe, nom,prenom, telephone, type_compte) VALUES (?, ?, ?, ?, ?, ?)";
-            PreparedStatement statement = connection.prepareStatement(query);
-            statement.setString(1, courriel);
-            statement.setString(2, motDePasse);
-            statement.setString(3, nom);
-            statement.setString(4, prenom);
-            statement.setString(5, telephone);
-            statement.setString(6, typeCompte);
-
-            statement.executeUpdate();
-
-            // Fermez la connexion et le statement après utilisation
-            statement.close();
-            connection.close();
-
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                if (response.isSuccessful()) {
+                    callback.onSuccess(response.body().string());
+                } else {
+                    callback.onError("Erreur : " + response.code());
+                }
+            }
+        });
     }
 }
+
+

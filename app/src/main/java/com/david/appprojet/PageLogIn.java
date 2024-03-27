@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -45,14 +46,28 @@ public class PageLogIn extends AppCompatActivity{
         connexionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                try {
-                    DatabaseUtil.getConnection();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
+                DatabaseUtil db = new DatabaseUtil();
+                db.connecterBD(new ApiCallback() {
+                    @Override
+                    public void onSuccess(String response) {
+                        // Si la réponse est "true", les identifiants sont valides
+                        if (response.equals("true")) {
+                            // Redirection vers une autre activité ou traitement après la connexion réussie
+                            Toast.makeText(PageLogIn.this, "Connexion réussie", Toast.LENGTH_SHORT).show();
+                            // Ici, vous pouvez démarrer une nouvelle activité ou effectuer d'autres actions
+                        } else {
+                            // Sinon, les identifiants sont invalides
+                            Toast.makeText(PageLogIn.this, "Identifiants invalides", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+
+                    @Override
+                    public void onError(String message) {
+                        // En cas d'erreur lors de la connexion à la base de données
+                        Toast.makeText(PageLogIn.this, "Erreur : " + message, Toast.LENGTH_SHORT).show();
+                    }
+                });
             }
         });
     }
-
-
 }
