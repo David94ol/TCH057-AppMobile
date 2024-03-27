@@ -20,12 +20,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
-
-import okhttp3.MediaType;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.RequestBody;
-import okhttp3.Response;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Future;
 
 public class PageInscription extends AppCompatActivity{
 
@@ -39,6 +35,8 @@ public class PageInscription extends AppCompatActivity{
     private Spinner typeCompte;
     private Button soumettreInscription;
     private Button annulerInscription;
+    private Future<Boolean> reponse;
+    private Boolean reponseRequete;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,12 +71,7 @@ public class PageInscription extends AppCompatActivity{
                 nomUsager.setText("");
             }
         });
-        nomUsager.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                nomUsager.setText("");
-            }
-        });
+
 
         //Si on veut annuler l'inscription, on retourne a l'activité PageLogIn
         annulerInscription.setOnClickListener(new View.OnClickListener() {
@@ -118,11 +111,33 @@ public class PageInscription extends AppCompatActivity{
                     }
                     else
                     {
-                        //On envoie la requete pour ajouter un utilisateur
-                        DatabaseUtil.executeQuery("INSERT INTO eq2utilisateur (adresse_courriel, mot_de_passe, nom, prenom, telephone, type_compte) " +
-                                        "VALUES (?, ?, ?, ?, ?, ?)", courriel, motDePasse, nom, prenom, telephone, type);
+                        //On envoie un objet JSON avec les informations de l'utilisateur
+                        JSONObject json = new JSONObject();
+                        try {
+                            json.put("prenom", prenom);
+                            json.put("nom", nom);
+                            json.put("telephone", telephone);
+                            json.put("courriel", courriel);
+                            json.put("type", type);
+                            json.put("motDePasse", motDePasse);
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                        //On envoie la requête à la base de données
+                        DatabaseUtil db = new DatabaseUtil();
+                        reponse = db.publierInformation(json.toString(), "eq2utilisateur");
                         //On affiche un message de succès
-                        Toast.makeText(getApplicationContext(), "Inscription réussie", Toast.LENGTH_SHORT).show();
+                        try {
+                            reponseRequete = reponse.get();
+                        } catch (ExecutionException e) {
+                            throw new RuntimeException(e);
+                        } catch (InterruptedException e) {
+                            throw new RuntimeException(e);
+                        }
+                        if (reponseRequete == true) {
+                            Toast.makeText(getApplicationContext(), "Inscription réussie", Toast.LENGTH_SHORT).show();
+                        }
+
                     }
                 }
             }

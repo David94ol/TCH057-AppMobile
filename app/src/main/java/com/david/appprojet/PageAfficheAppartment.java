@@ -18,6 +18,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -61,37 +62,9 @@ public class PageAfficheAppartment extends AppCompatActivity{
         ////////////******************************************************************************
 
         //On doit aller chercher dans la base de données les informations de l'appartement
-        //On doit afficher les informations de l'appartement dans les TextView correspondants
-        ResultSet result = null;
-        try {
-            //On va aller chercher les informations de l'appartement dans la base de données
-            String requete = String.format("SELECT * FROM eq2propriete WHERE id = %s", 1);
-            result = DatabaseUtil.executeQuery(requete);
-            if(result != null){
-                prix.setText(result.getString("prix"));
-                adresse.setText(result.getString("adresse"));
-                arrondisement.setText(result.getString("arrondisement"));
-                chambres.setText(result.getString("nb_chambres"));
-                superficie.setText(result.getString("superficie"));
-                animaux.setText(result.getString("animaux"));
-                fumeur.setText(result.getString("fumeur"));
-                stationnement.setText(result.getString("stationnement"));
-                description.setText(result.getString("description"));
-                courrielProprietaire = result.getString("proprietaire_adresse_courriel");
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            if (result != null) {
-                try {
-                    //Faut fermer le resultSet pour liberer les ressources
-                    result.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-        //Pour le bouton annuler
+        DatabaseUtil httpclient = new DatabaseUtil();
+
+
         annuler.setOnClickListener(v -> {
             //TODO: A FAIRE
             Intent intent = new Intent(PageAfficheAppartment.this, PageLogIn.class);
