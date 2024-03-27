@@ -62,7 +62,7 @@ public class PageAfficheAppartment extends AppCompatActivity{
 
         annuler.setOnClickListener(v -> {
             //TODO: A FAIRE
-            Intent intent = new Intent(PageAfficheAppartment.this, PageLogIn_Main.class);
+            Intent intent = new Intent(PageAfficheAppartment.this, PageLogIn.class);
             startActivity(intent);
             finish();
         });

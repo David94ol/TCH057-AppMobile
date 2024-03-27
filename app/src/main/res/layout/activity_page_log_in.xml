@@ -11,7 +11,7 @@
     android:backgroundTint="@color/grey"
     android:gravity="center"
     android:orientation="vertical"
-    tools:context=".PageLogIn_Main">
+    tools:context=".PageLogIn">
 
 
     <androidx.cardview.widget.CardView

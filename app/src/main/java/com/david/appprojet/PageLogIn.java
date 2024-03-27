@@ -12,7 +12,18 @@ import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.io.IOException;
 import java.sql.SQLException;
+
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.Headers;
+import okhttp3.MediaType;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
+import okhttp3.ResponseBody;
 
 public class PageLogIn extends AppCompatActivity{
 
@@ -41,14 +52,20 @@ public class PageLogIn extends AppCompatActivity{
                 finish();
             }
         });
+
+
         //Lorsqu'on click sur connexion
         connexionButton.setOnClickListener(new View.OnClickListener() {
+            public void run () throws Exception {
+                DatabaseUtil databaseUtil = new DatabaseUtil();
+                databaseUtil.getConnection();
+            }
             @Override
             public void onClick(View v) {
                 try {
-                    DatabaseUtil.getConnection();
-                } catch (SQLException e) {
-                    e.printStackTrace();
+                    run();
+                } catch (Exception e) {
+                    throw new RuntimeException(e);
                 }
             }
         });

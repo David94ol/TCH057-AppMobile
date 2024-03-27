@@ -40,6 +40,5 @@ dependencies {
     /*On ajoute la bibliothèque Jackson pour le traitement de documentation JSON*/
     implementation("com.fasterxml.jackson.core:jackson-databind:2.16.1")
     /*On ajoute la bibliothèque pour etablir une connection avec la base de donnees*/
-    implementation("mysql:mysql-connector-java:8.0.28")
-
+    implementation("com.squareup.okhttp3:okhttp:4.12.0")
 }
