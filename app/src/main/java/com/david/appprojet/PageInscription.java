@@ -16,15 +16,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.david.appprojet.DatabaseUtil; // Import de la classe DatabaseUtil
 
 import java.util.concurrent.ExecutionException;
-import java.util.concurrent.Future;
 
-public class PageInscription extends AppCompatActivity{
+public class PageInscription extends AppCompatActivity {
 
-    //Attributs de la page d'inscription
+    // Attributs de la page d'inscription
     private TextView prenomUsager;
     private TextView nomUsager;
     private TextView telephoneUsager;
@@ -34,7 +32,6 @@ public class PageInscription extends AppCompatActivity{
     private Spinner typeCompte;
     private Button soumettreInscription;
     private Button annulerInscription;
-    private Future<Boolean> reponse;
     private Boolean reponseRequete;
 
     @Override
@@ -42,27 +39,27 @@ public class PageInscription extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.pageinscription);
 
-        //On cherche les composants de la vue de PageInscription
-        prenomUsager = findViewById(R.id.prenomFormulaire);
-        nomUsager = findViewById(R.id.nomFormulaire);
+        // Initialisation des composants de la vue de PageInscription
+        prenomUsager = findViewById(R.id.nomFormulaire);
+        nomUsager = findViewById(R.id.prenomFormulaire);
         telephoneUsager = findViewById(R.id.telephoneFormulaire);
         courrielUsager = findViewById(R.id.emailFormulaire);
-        typeCompte = (Spinner) findViewById(R.id.selectionFormulaire);
+        typeCompte = findViewById(R.id.selectionFormulaire);
         soumettreInscription = findViewById(R.id.soumettreFormulaire);
         annulerInscription = findViewById(R.id.annulerInscription);
         motPasse = findViewById(R.id.motDePasse);
         confirmationMotPasse = findViewById(R.id.motDePasseConfirm);
 
-        //Pour mettre les options du spinner
-        String[] typeDeCompte = {"Veillez choisir le type de compte","Propriétaire", "Locataire"};
-        //L'adapteur permet de mettre les options dans le spinner
-        ArrayAdapter adapteur = new ArrayAdapter(this, android.R.layout.simple_spinner_item, typeDeCompte);
-        //Specification du layout a utiliser pour afficher ce qu'il y a dans l'adapteur
+        // Pour mettre les options du spinner
+        String[] typeDeCompte = {"Veuillez choisir le type de compte", "Propriétaire", "Locataire"};
+        // L'adapteur permet de mettre les options dans le spinner
+        ArrayAdapter<String> adapteur = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, typeDeCompte);
+        // Spécification du layout à utiliser pour afficher ce qu'il y a dans l'adapteur
         adapteur.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        //On met l'adapteur dans le spinner
+        // On met l'adapteur dans le spinner
         typeCompte.setAdapter(adapteur);
 
-        //Si on click sur prenom ou nom, on efface le texte
+        // Si on clique sur prénom , on efface le texte de nom et prenom
         prenomUsager.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -71,8 +68,7 @@ public class PageInscription extends AppCompatActivity{
             }
         });
 
-
-        //Si on veut annuler l'inscription, on retourne a l'activité PageLogIn
+        // Si on veut annuler l'inscription, on retourne à l'activité PageLogIn
         annulerInscription.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -82,11 +78,11 @@ public class PageInscription extends AppCompatActivity{
             }
         });
 
-        //Si on veut soumettre l'inscription
+        // Si on veut soumettre l'inscription
         soumettreInscription.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //On recupere les valeurs des champs
+                // On récupère les valeurs des champs
                 String prenom = prenomUsager.getText().toString();
                 String nom = nomUsager.getText().toString();
                 String telephone = telephoneUsager.getText().toString();
@@ -95,32 +91,39 @@ public class PageInscription extends AppCompatActivity{
                 String motDePasse = motPasse.getText().toString();
                 String confirmationMotDePasse = confirmationMotPasse.getText().toString();
 
-
-                //On verifie que les champs ne sont pas vides
-                if(prenom.isEmpty() || nom.isEmpty() || telephone.isEmpty() || courriel.isEmpty() || type.equals("Veillez choisir le type de compte") || motDePasse.isEmpty() || confirmationMotDePasse.isEmpty()){
-                    //Si un champ est vide, on affiche un message d'erreur
+                // On vérifie que les champs ne sont pas vides
+                if (prenom.isEmpty() || nom.isEmpty() || telephone.isEmpty() || courriel.isEmpty() || type.equals("Veuillez choisir le type de compte") || motDePasse.isEmpty() || confirmationMotDePasse.isEmpty()) {
+                    // Si un champ est vide, on affiche un message d'erreur
                     Toast.makeText(getApplicationContext(), "Veuillez remplir tous les champs", Toast.LENGTH_SHORT).show();
-                }
-                //Si tout est bien rempli, on fai une requete a la base de données
-                else{
-                    //Confirmation du mot de passe
-                    if(!motDePasse.equals(confirmationMotDePasse)){
-                        //Si les mots de passe ne correspondent pas, on affiche un message d'erreur
+                } else {
+                    // Confirmation du mot de passe
+                    if (!motDePasse.equals(confirmationMotDePasse)) {
+                        // Si les mots de passe ne correspondent pas, on affiche un message d'erreur
                         Toast.makeText(getApplicationContext(), "Les mots de passe ne correspondent pas", Toast.LENGTH_SHORT).show();
-                    }
-                    else
-                    {
-                        // Appel de la méthode pour insérer l'utilisateur dans la base de données
-                        //DatabaseUtil.ajoutUsager(courriel,motDePasse,nom,prenom,telephone,type);
-                        // Affichez un message de succès
-                        Toast.makeText(getApplicationContext(), "Inscription réussie !", Toast.LENGTH_SHORT).show();
-                        // Redirigez l'utilisateur vers une autre activité ou effectuez une autre action selon vos besoins
-
+                    } else {
+                        // On crée un objet DatabaseUtil pour faire la requête
+                        DatabaseUtil db = new DatabaseUtil();
+                        try {
+                            // On fait la requête pour ajouter un utilisateur
+                            reponseRequete = db.ajoutUtilisateur(courriel, motDePasse, nom, prenom, telephone, type);
+                            // Si la requête a réussi, on affiche un message de succès et on retourne a la page de Log In
+                            if (reponseRequete == true) {
+                                Toast.makeText(getApplicationContext(), "Inscription réussie", Toast.LENGTH_SHORT).show();
+                                // On retourne à l'activité PageLogIn
+                                Intent intent = new Intent(PageInscription.this, PageLogIn.class);
+                                startActivity(intent);
+                                finish();
+                            } else {
+                                // Si la requête a échoué, on affiche un message d'erreur
+                                Toast.makeText(getApplicationContext(), "Erreur lors de l'inscription", Toast.LENGTH_SHORT).show();
+                            }
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
                     }
                 }
             }
         });
-
     }
-
 }
+

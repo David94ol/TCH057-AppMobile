@@ -56,6 +56,7 @@ public class PageLogIn extends AppCompatActivity{
 
         //Lorsqu'on click sur connexion
         connexionButton.setOnClickListener(new View.OnClickListener() {
+            //TODO comme exemple mais faut le changer
             public void run () throws Exception {
                 DatabaseUtil databaseUtil = new DatabaseUtil();
                 databaseUtil.getConnection();

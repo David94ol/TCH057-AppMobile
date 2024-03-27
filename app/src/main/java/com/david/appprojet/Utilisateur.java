@@ -11,7 +11,6 @@ public class Utilisateur {
     private String courriel;
     private String typeCompte;
     private String motDePasse;
-
     private String confirmationMotDePasse;
 
     //Constructeur de l'utilisateur
