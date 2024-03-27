@@ -12,7 +12,7 @@ import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class PageLogIn extends AppCompatActivity{
+public class PageLogIn_Main extends AppCompatActivity{
 
     //Composants de la page qui sont manipulés
     private EditText usernameId, passwordId;
@@ -34,7 +34,7 @@ public class PageLogIn extends AppCompatActivity{
             @Override
             public void onClick(View v) {
                 //On commence l'activité d'inscription
-                Intent inscription = new Intent(PageLogIn.this, PageInscription.class);
+                Intent inscription = new Intent(PageLogIn_Main.this, PageInscription.class);
                 startActivity(inscription);
                 finish();
             }
@@ -44,7 +44,7 @@ public class PageLogIn extends AppCompatActivity{
             @Override
             public void onClick(View v) {
                 //On commence l'activité de connexion TODO : A MODIFIER SEULEMENT POUR TEST
-                Intent connexion = new Intent(PageLogIn.this, PageAfficheAppartment.class);
+                Intent connexion = new Intent(PageLogIn_Main.this, PagePrincipaleLocataire.class);
                 startActivity(connexion);
                 finish();
             }
