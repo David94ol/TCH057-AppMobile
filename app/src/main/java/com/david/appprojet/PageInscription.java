@@ -19,7 +19,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.IOException;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 
@@ -77,7 +76,7 @@ public class PageInscription extends AppCompatActivity{
         annulerInscription.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(PageInscription.this, PageLogIn.class);
+                Intent intent = new Intent(PageInscription.this, PageLogIn_Main.class);
                 startActivity(intent);
                 finish();
             }
