@@ -5,6 +5,7 @@
  * Date: 25 mars 2023*/
 package com.david.appprojet;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
@@ -46,6 +47,42 @@ public class DatabaseUtil {
         });
     }
 
+    public void affichageInfosProprietes(String id, Callback callback) throws Exception{
+
+        Request request = new Request.Builder()
+                .url("/projet2/api/getpropriete/"+id)
+                .build();
+
+        client.newCall(request).enqueue(new okhttp3.Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                e.printStackTrace();
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                try (ResponseBody responseBody = response.body()) {
+                    if (!response.isSuccessful())
+                        throw new IOException("Unexpected code " + response);
+
+                    // Convertir la réponse en chaîne de caractères
+                    String reponseString = responseBody.string();
+
+                    // Créer un objet JSONObject à partir de la chaîne de caractères
+                    JSONObject reponseJson = new JSONObject(reponseString);
+
+                    // Appeler la méthode de rappel avec l'objet JSONObject
+                    callback.onResponse(call, response);
+                } catch (JSONException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        });
+
+
+
+    }
+
     //Methode pour ajouter un utilisateur dans la base de donnees
     public Boolean ajoutUtilisateur(String email, String password, String nom, String prenom, String telephone, String type) throws Exception{
 
@@ -79,6 +116,7 @@ public class DatabaseUtil {
                     try (ResponseBody responseBody = response.body()) {
                         if (!response.isSuccessful())
                             throw new IOException("Unexpected code " + response);
+
                     }
                 }
             });

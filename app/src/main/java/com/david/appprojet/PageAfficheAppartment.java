@@ -15,7 +15,14 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
+import org.json.JSONObject;
+
+import java.io.IOException;
+
+import okhttp3.Call;
 
 public class PageAfficheAppartment extends AppCompatActivity{
 
@@ -24,8 +31,6 @@ public class PageAfficheAppartment extends AppCompatActivity{
     TextView prix, adresse, arrondisement, chambres, superficie, animaux, fumeur, stationnement, description;
     String courrielProprietaire;
 
-    //j'ajoute ce bouton uniqument pour pouvoir acceder espace proprio
-    Button btn_spacePropio;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,23 +50,12 @@ public class PageAfficheAppartment extends AppCompatActivity{
         stationnement = findViewById(R.id.stationnement);
         description = findViewById(R.id.description);
 
-        btn_spacePropio = findViewById(R.id.btn_sectionPropio); //toERASESOON*******************
+        //Récupération des données de la base de donnees
+        affichageLocations();
 
-        btn_spacePropio.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intentionToErase = new Intent(v.getContext(), AjouterNouvellePropio.class);
-                startActivity(intentionToErase);
-            }
-        });
-        ////////////******************************************************************************
-
-        //On doit aller chercher dans la base de données les informations de l'appartement
-        DatabaseUtil httpclient = new DatabaseUtil();
-
-
+        //Poour retourner a la page de visualisation
         annuler.setOnClickListener(v -> {
-            //TODO: A FAIRE
+            //TODO: A CHANGER
             Intent intent = new Intent(PageAfficheAppartment.this, PageLogIn.class);
             startActivity(intent);
             finish();
@@ -83,6 +77,51 @@ public class PageAfficheAppartment extends AppCompatActivity{
         intent.putExtra(Intent.EXTRA_SUBJECT, subject);
         if (intent.resolveActivity(getPackageManager()) != null) {
             startActivity(intent);
+        }
+    }
+
+    public void affichageLocations(){
+        try {
+            DatabaseUtil db = new DatabaseUtil();
+            try {
+                db.affichageInfosProprietes("1", new okhttp3.Callback() {
+                    @Override
+                    public void onFailure(@NonNull Call call, @NonNull IOException e) {
+
+                    }
+                    @Override
+                    public void onResponse(Call call, okhttp3.Response response) throws IOException {
+                        try (okhttp3.ResponseBody responseBody = response.body()) {
+                            if (!response.isSuccessful())
+                                throw new IOException("Unexpected code " + response);
+
+                            JSONObject jsonObject = new JSONObject(responseBody.string());
+                            runOnUiThread(() -> {
+                                try {
+                                    prix.setText(jsonObject.getString("prix"));
+                                    adresse.setText(jsonObject.getString("adresse"));
+                                    arrondisement.setText(jsonObject.getString("arrondissement"));
+                                    chambres.setText(jsonObject.getString("chambres"));
+                                    superficie.setText(jsonObject.getString("superficie"));
+                                    animaux.setText(jsonObject.getString("animaux"));
+                                    fumeur.setText(jsonObject.getString("fumeur"));
+                                    stationnement.setText(jsonObject.getString("stationnement"));
+                                    description.setText(jsonObject.getString("description"));
+                                    courrielProprietaire = jsonObject.getString("courriel");
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                }
+                            });
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+                });
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
     }
