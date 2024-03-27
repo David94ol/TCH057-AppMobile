@@ -29,12 +29,12 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/logoImage"
+            app:layout_constraintTop_toBottomOf="@+id/logoIMG"
             app:layout_constraintVertical_bias="1.0"
             tools:ignore="VisualLintOverlap,TextContrastCheck" />
 
         <ImageView
-            android:id="@+id/logoImage"
+            android:id="@+id/logoIMG"
             android:layout_width="184dp"
             android:layout_height="117dp"
             android:contentDescription="@string/image_du_logo"

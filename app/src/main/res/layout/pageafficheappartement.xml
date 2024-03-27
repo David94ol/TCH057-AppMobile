@@ -65,7 +65,7 @@
         tools:layout_editor_absoluteY="0dp">
 
         <ImageView
-            android:id="@+id/logoImage"
+            android:id="@+id/logoIMG"
             android:layout_width="92dp"
             android:layout_height="match_parent"
             android:contentDescription="@string/image_du_logo"
@@ -86,7 +86,7 @@
             android:textSize="23sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/logoImage"
+            app:layout_constraintStart_toEndOf="@+id/logoIMG"
             app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

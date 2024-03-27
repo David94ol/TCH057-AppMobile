@@ -9,7 +9,6 @@
 package com.david.appprojet;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -17,10 +16,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import java.io.IOException;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 
 public class PageAfficheAppartment extends AppCompatActivity{
 
@@ -55,7 +50,7 @@ public class PageAfficheAppartment extends AppCompatActivity{
         btn_spacePropio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intentionToErase = new Intent(v.getContext(), AjouterNouvelleProp.class);
+                Intent intentionToErase = new Intent(v.getContext(), AjouterNouvellePropio.class);
                 startActivity(intentionToErase);
             }
         });

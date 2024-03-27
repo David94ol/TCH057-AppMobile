@@ -55,9 +55,16 @@
     <string name="fumeurNouvelleProp">Fumeur</string>
     <string name="Description">Description</string>
     <string name="infContact">Information de contact</string>
-
-
-
+    <string name="ajoutPhotos">Ajouter des photos et soumettre le formulaire</string>
+    <string name="ajoutphotospage">Ajouts des photos de l\'appartement</string>
+    <string name="indicationphotos">Veuillez minimalement soumettre 3 photos</string>
+    <string name="Photo_1">Photo 1</string>
+    <string name="Photo_2">Photo 2</string>
+    <string name="Photo_3">Photo 3</string>
+    <string name="Photo_4">Photo 4</string>
+    <string name="Photo_5">Photo 5</string>
+    <string name="Photo_6">Photo 6</string>
+    <string name="btn_telecharger_photos">Telecharger</string>
 
 
 </resources>

@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@color/white"
     android:textAlignment="textStart"
-    tools:context=".AjouterNouvelleProp">
+    tools:context=".AjouterNouvellePropio">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/titreFormulaire"
@@ -20,7 +20,7 @@
         app:layout_constraintVertical_bias="0.0">
 
         <ImageView
-            android:id="@+id/logoImage"
+            android:id="@+id/logoIMG"
             android:layout_width="103dp"
             android:layout_height="68dp"
             android:layout_marginTop="8dp"
@@ -54,7 +54,7 @@
             android:text="@string/remplir_tout"
             android:textAlignment="center"
             android:textSize="10sp"
-            app:layout_constraintTop_toTopOf="@+id/logoImage"
+            app:layout_constraintTop_toTopOf="@+id/logoIMG"
             tools:layout_editor_absoluteX="0dp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -71,43 +71,38 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        app:layout_constraintGuide_begin="180dp" />
+        app:layout_constraintGuide_begin="213dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_begin="342dp" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="365dp" />
+        app:layout_constraintGuide_begin="432dp" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/txtInp_AdresseNouvApto"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="279dp"
-        android:layout_height="78dp"
-        android:layout_marginTop="15dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="16dp"
         android:hint="@string/adresse"
         app:boxStrokeColor="@color/green"
+        app:cursorColor="@null"
         app:endIconMode="clear_text"
         app:endIconTint="@color/green2"
         app:helperText="Requis*"
         app:helperTextTextColor="@color/red"
         app:hintTextColor="@color/green"
-        app:layout_constraintStart_toStartOf="@+id/guideline4"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/txtV_infGene"
         app:startIconDrawable="@drawable/add_adresse_icon"
         tools:ignore="MissingConstraints">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/txtInp_AdresseNouvAptoText"
-            android:layout_width="match_parent"
+            android:layout_width="254dp"
             android:layout_height="52dp"
             android:textColor="#090909"
             android:textColorLink="#4CAF50"
@@ -116,7 +111,7 @@
 
     <TextView
         android:id="@+id/txtV_infGene"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
         android:layout_marginTop="145dp"
@@ -129,21 +124,287 @@
         app:layout_constraintTop_toTopOf="@+id/titreFormulaire" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/txtInp_NumeroNouvApto"
+
+        android:id="@+id/txtInp_AptoNouvApto"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="125dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:layout_editor_absoluteX="285dp"
-        tools:layout_editor_absoluteY="193dp"
-        android:hint="@">
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="161dp"
+        android:layout_marginEnd="6dp"
+        android:hint="@string/apto"
+        app:boxStrokeColor="@color/green"
+        app:endIconMode="clear_text"
+        app:endIconTint="@color/green2"
+        app:helperText="Requis*"
+        app:helperTextTextColor="@color/red"
+        app:hintTextColor="@color/green"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.977"
+        app:layout_constraintStart_toEndOf="@+id/txtInp_AdresseNouvApto"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/txtInp_AptoNouvAptoText"
+            android:layout_width="83dp"
+            android:layout_height="52dp"
+            android:textColor="#090909"
+            android:textColorLink="#4CAF50"
+            android:textSize="12sp" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.textfield.TextInputEditText
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
+    <Spinner
+        android:id="@+id/sp_Ville_et_Province_Nouveau_Apto"
+        android:layout_width="200dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="202dp"
+        android:entries="@array/villes_et_provinces_canada"
+        app:layout_constraintEnd_toEndOf="@+id/txtInp_CodePostalNouvApto"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtInp_AdresseNouvApto" />
 
-        tools:layout_editor_absoluteX="296dp"
-        tools:layout_editor_absoluteY="161dp" />
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/txtInp_CodePostalNouvApto"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="4dp"
+        android:hint="@string/codePostal"
+        app:boxStrokeColor="@color/green"
+        app:endIconMode="clear_text"
+        app:endIconTint="@color/green2"
+        app:helperText="Requis*"
+        app:helperTextTextColor="@color/red"
+        app:hintTextColor="@color/green"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtInp_AptoNouvApto">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/txtInp_CodePostalNouvAptoText"
+            android:layout_width="136dp"
+            android:layout_height="52dp"
+            android:textColor="#090909"
+            android:textColorLink="#4CAF50"
+            android:textSize="12sp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/txtV_nBchambres"
+        android:layout_width="206dp"
+        android:layout_height="29dp"
+        android:layout_marginTop="44dp"
+        android:layout_marginEnd="112dp"
+        android:elegantTextHeight="true"
+        android:text="@string/nbChambres"
+        android:textColor="@color/black"
+        android:textColorHighlight="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.022"
+        app:layout_constraintStart_toStartOf="@+id/guideline4"
+        app:layout_constraintTop_toBottomOf="@+id/sp_Ville_et_Province_Nouveau_Apto" />
+
+    <EditText
+        android:id="@+id/edtxt_NbChambres_NouveauApto"
+        android:layout_width="89dp"
+        android:layout_height="40dp"
+        android:ems="10"
+        android:inputType="number"
+        app:layout_constraintEnd_toStartOf="@+id/guideline8"
+        app:layout_constraintStart_toStartOf="@+id/guideline7"
+        app:layout_constraintTop_toBottomOf="@+id/txtInp_CodePostalNouvApto" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="246dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="335dp" />
+
+    <TextView
+        android:id="@+id/txtV_nbStationnement"
+        android:layout_width="206dp"
+        android:layout_height="29dp"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="35dp"
+        android:text="@string/nbStationnement"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toStartOf="@+id/guideline7"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtV_nBchambres" />
+
+    <EditText
+        android:id="@+id/edtxt_nbStationnementnovApto"
+        android:layout_width="89dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="33dp"
+        android:ems="10"
+        android:inputType="number"
+        app:layout_constraintEnd_toStartOf="@+id/guideline8"
+        app:layout_constraintStart_toStartOf="@+id/guideline5"
+        app:layout_constraintTop_toBottomOf="@+id/edtxt_NbChambres_NouveauApto" />
+
+    <TextView
+        android:id="@+id/txtV_permissionAnniNouvApto"
+        android:layout_width="206dp"
+        android:layout_height="29dp"
+        android:layout_marginTop="4dp"
+        android:text="@string/permisAnimaux"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toStartOf="@+id/guideline5"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline4"
+        app:layout_constraintTop_toBottomOf="@+id/txtV_nbStationnement" />
+
+    <Spinner
+        android:id="@+id/spn_OUINON_animaux_nouvApto"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="8dp"
+        android:entries="@array/oui_non_options"
+        android:textAlignment="viewStart"
+        app:layout_constraintBottom_toTopOf="@+id/edtxt_superficie_NouvApto"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline7"
+        app:layout_constraintTop_toBottomOf="@+id/edtxt_nbStationnementnovApto" />
+
+    <TextView
+        android:id="@+id/txtV_superficieNovApto"
+        android:layout_width="206dp"
+        android:layout_height="29dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/superficie"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toStartOf="@+id/guideline5"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline4"
+        app:layout_constraintTop_toBottomOf="@+id/txtV_permissionAnniNouvApto" />
+
+    <EditText
+        android:id="@+id/edtxt_superficie_NouvApto"
+        android:layout_width="89dp"
+        android:layout_height="40dp"
+        android:ems="10"
+        android:hint="m2"
+        android:inputType="number"
+        app:layout_constraintEnd_toStartOf="@+id/guideline8"
+        app:layout_constraintStart_toStartOf="@+id/guideline7"
+        app:layout_constraintTop_toBottomOf="@+id/spn_OUINON_animaux_nouvApto" />
+
+    <TextView
+        android:id="@+id/txtV_Prix"
+        android:layout_width="206dp"
+        android:layout_height="29dp"
+        android:layout_marginTop="11dp"
+        android:text="@string/prix"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toStartOf="@+id/guideline5"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline4"
+        app:layout_constraintTop_toBottomOf="@+id/txtV_superficieNovApto" />
+
+    <EditText
+        android:id="@+id/editTextNumber"
+        android:layout_width="89dp"
+        android:layout_height="40dp"
+        android:ems="10"
+        android:hint="$ "
+        android:inputType="number"
+        app:layout_constraintEnd_toStartOf="@+id/guideline8"
+        app:layout_constraintStart_toStartOf="@+id/guideline7"
+        app:layout_constraintTop_toBottomOf="@+id/edtxt_superficie_NouvApto" />
+
+    <TextView
+        android:id="@+id/txtV_descriptionNouvProp"
+        android:layout_width="206dp"
+        android:layout_height="29dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/Description"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toStartOf="@+id/guideline5"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline4"
+        app:layout_constraintTop_toBottomOf="@+id/txtV_Prix" />
+
+    <EditText
+        android:id="@+id/editTextTextMultiLine"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:ems="10"
+        android:gravity="start|top"
+        android:inputType="textMultiLine"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline7"
+        app:layout_constraintTop_toBottomOf="@+id/editTextNumber" />
+
+    <TextView
+        android:id="@+id/txtV_InfGene"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="34dp"
+        android:text="@string/inf_gene"
+        android:textAlignment="textStart"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtV_descriptionNouvProp"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/txtV_infContact"
+        android:layout_width="206dp"
+        android:layout_height="22dp"
+        android:layout_marginTop="28dp"
+        android:text="@string/infContact"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toTopOf="@+id/btn_Ajouter_PhotosNouvApto"
+        app:layout_constraintEnd_toStartOf="@+id/guideline5"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline4"
+        app:layout_constraintTop_toTopOf="@+id/txtV_InfGene" />
+
+    <EditText
+        android:id="@+id/edtxt_adresseContactNouvApp"
+        android:layout_width="163dp"
+        android:layout_height="36dp"
+        android:layout_marginBottom="24dp"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        app:layout_constraintBottom_toTopOf="@+id/btn_Ajouter_PhotosNouvApto"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline7"
+        app:layout_constraintTop_toBottomOf="@+id/txtV_InfGene"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <Button
+        android:id="@+id/btn_Ajouter_PhotosNouvApto"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="@color/green"
+        android:text="@string/ajoutPhotos"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtV_infContact"
+        app:layout_constraintVertical_bias="0.0"
+        tools:layout_editor_absoluteX="0dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

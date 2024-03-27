@@ -1,0 +1,23 @@
+<resources>
+    <string-array name="villes_et_provinces_canada">
+        <item>Edmonton (Alberta)</item>
+        <item>Calgary (Alberta)</item>
+        <item>Victoria (Colombie-Britannique)</item>
+        <item>Vancouver (Colombie-Britannique)</item>
+        <item>Charlottetown (Île-du-Prince-Édouard)</item>
+        <item>Winnipeg (Manitoba)</item>
+        <item>Fredericton (Nouveau-Brunswick)</item>
+        <item>Moncton (Nouveau-Brunswick)</item>
+        <item>Halifax (Nouvelle-Écosse)</item>
+        <item>Toronto (Ontario)</item>
+        <item>Ottawa (Ontario)</item>
+        <item>Québec (Québec)</item>
+        <item>Montréal (Québec)</item>
+        <item>Regina (Saskatchewan)</item>
+        <item>Saskatoon (Saskatchewan)</item>
+        <item>St. John’s (Terre-Neuve-et-Labrador)</item>
+        <item>Yellowknife (Territoires du Nord-Ouest)</item>
+        <item>Whitehorse (Yukon)</item>
+        <item>Iqaluit (Nunavut)</item>
+    </string-array>
+</resources>

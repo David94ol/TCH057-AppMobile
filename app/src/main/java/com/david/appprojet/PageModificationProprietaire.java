@@ -60,7 +60,7 @@ private ImageView imgV_retourProp;
 
             @Override
             public void onClick(View v) {
-                Intent intent1 = new Intent(PageModificationProprietaire.this, AjouterNouvelleProp.class);
+                Intent intent1 = new Intent(PageModificationProprietaire.this, AjouterNouvellePropio.class);
                 startActivity(intent1);
             }
         });
